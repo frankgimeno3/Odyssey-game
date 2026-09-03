@@ -1,0 +1,77 @@
+{
+   "title": {
+    "en": "TOTEM GAME PRINTER",
+    "de": "TOTEM SPIELDRUCKER",
+    "es": "IMPRESOR JUEGO TÓTEM"
+   },
+   "languageselection": {
+    "en": "LANGUAGE SELECTION",
+    "de": "SPRACHAUSWAHL",
+    "es": "SELECCIÓN DE IDIOMA"
+   },
+   "cerrarsesion": {
+    "en": "LOG OUT",
+    "de": "Ausloggen",
+    "es": "CERRAR SESIÓN"
+   },
+   "subtitulo": {
+    "en": "Greek gods game",
+    "de": "Spiel der griechischen Götter",
+    "es": "JUEGO DE DIOSES GRIEGOS"
+   },
+   "hora": {
+    "en": "HOUR",
+    "de": "Uhrzeit",
+    "es": "HORA"
+   },
+   "nombre": {
+    "en": "NAME",
+    "de": "NAME",
+    "es": "NOMBRE"
+   },
+   "dios": {
+    "en": "GOD",
+    "de": "Gottheit",
+    "es": "DIOS"
+   },
+   "idioma": {
+    "en": "LANGUAGE",
+    "de": "Sprache",
+    "es": "IDIOMA"
+   },
+   "archivo": {
+    "en": "FILE",
+    "de": "Datei",
+    "es": "ARCHIVO"
+   },
+   "opciones": {
+    "en": "OPTIONS",
+    "de": "Optionen",
+    "es": "OPCIONES"
+   },
+   "visualizar": {
+    "en": "DISPLAY",
+    "de": "Vorschau",
+    "es": "VISUALIZAR"
+   },
+   "eliminar": {
+    "en": "DELETE",
+    "de": "Entfernen",
+    "es": "ELIMINAR"
+   },
+   "cancelar": {
+    "en": "CANCEL",
+    "de": "STORNIERENcancel",
+    "es": "CANCELAR"
+   },
+   "estasseguro": {
+    "en": "ARE YOU SURE YOU WANT TO DELETE?",
+    "de": "SIND SIE SICHER, DASS SIE LÖSCHEN MÖCHTEN?",
+    "es": "¿ESTÁS SEGURO QUE DESEAS ELIMINAR?"
+   },
+   "vermas": {
+    "en": "SHOW MORE",
+    "de": "MEHR ANZEIGEN",
+    "es": "VER MÁS FILAS"
+   }    
+}

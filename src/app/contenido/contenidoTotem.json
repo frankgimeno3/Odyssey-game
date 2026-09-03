@@ -1,0 +1,362 @@
+{
+    "dashboard": {
+        "tegustariasaber": {
+            "es": "TE GUSTARÍA SABER...",
+            "en": "WOULD YOU LIKE TO KNOW...",
+            "de": "SIE MÖCHTEN WISSEN..."
+        },
+        "quediosdelolimpo": {
+            "es": "¿QUÉ DIVINIDAD GUIARÁ",
+            "en": "WHICH DEITY WILL GUIDE",
+            "de": "WELCHE GOTTHEIT WIRD"
+        },
+        "terepresenta": {
+            "es": "TU ODISEA?",
+            "en": "YOUR ODYSSEY?",
+            "de": "DEINE ODYSSEE LEITEN?"
+        },
+        "unaaventuraquenosensena": {
+            "es": "UNA AVENTURA QUE NOS ENSEÑA LAS CUALIDADES DE CADA DIOS GRIEGO.",
+            "en": "AN ADVENTURE THAT TEACHES US THE QUALITIES OF EACH GREEK GOD.",
+            "de": "EIN ABENTEUER, DAS UNS DIE EIGENSCHAFTEN JEDES GRIECHISCHEN GOTTES LEHRT."
+        },
+        "botonjugar": {
+            "es": "JUGAR",
+            "en": "PLAY",
+            "de": "SPIELEN"
+        }
+    },
+    "cuestionario": {
+        "nombre": {
+            "escribetunombre": {
+                "es": "ESCRIBE TU NOMBRE AQUÍ",
+                "en": "TYPE YOUR NAME HERE",
+                "de": "TRAGE DEINEN NAMEN EIN"
+            },
+            "caracteres10": {
+                "es": "HASTA 10 CARACTERES",
+                "en": "10 CHARACTERS MAXIMUM",
+                "de": "MAX. 10 ZEICHEN"
+            },
+            "seguir": {
+                "es": "CONTINUAR",
+                "en": "CONTINUE",
+                "de": "WEITER"
+            }
+        },
+        "nombrehola": {
+            "saludos": {
+                "es": "SALUDOS, ",
+                "en": "GREETINGS, ",
+                "de": "SEI GEGRÜSST!"
+            },
+            "bienvenidosalolimpo": {
+                "es": "BIENVENIDOS AL OLIMPO",
+                "en": "MEET THE GREEK GODS",
+                "de": "LERNE DIE GRIECHISCHEN GÖTTER KENNEN"
+            },
+            "cualdeellos": {
+                "es": "¿CUÁL DE ELLOS SE ADAPTA MEJOR A TU PERSONALIDAD?",
+                "en": "¿WHICH OF THEM MATCHES BEST WITH YOUR PERSONALITY?",
+                "de": "WELCHE GOTTHEIT PASST AM BESTEN ZU DEINER PERSÖNLICHKEIT?"
+            },
+            "atreveteasaber": {
+                "es": "¡ATRÉVETE A SABER! O COMO DIRÍAN LOS ANTIGUOS GRIEGOS... ¡ΓΝΩΘΙ ΣΑΥΤΟΝ!",
+                "en": "DARE TO KNOW! OR AS THE ANCIENT GREEKS WOULD SAY... ΓΝΩΘΙ ΣΑΥΤΟΝ!",
+                "de": "WAGE ZU WISSEN! ODER WIE DIE ALTEN GRIECHEN SAGTEN... ΓΝΩΘΙ ΣΑΥΤΟΝ!"
+            },
+            "empezar": {
+                "es": "EMPEZAR",
+                "en": "START",
+                "de": "START"
+            }
+        },
+        "conflicto": {
+            "pacifico": {
+                "es": "PACÍFICO",
+                "en": "PEACEFUL",
+                "de": "FRIEDFERTIG"
+            },
+            "guerrero": {
+                "es": "GUERRERO",
+                "en": "WARRIOR",
+                "de": "KRIEGER"
+            }
+        },
+        "relaciones": {
+            "enamoradizo": {
+                "es": "ENAMORADIZO",
+                "en": "PASSIONATE",
+                "de": "POLYAMOR"
+            },
+            "comprometido": {
+                "es": "COMPROMETIDO",
+                "en": "COMMITTED",
+                "de": "MONOGAM"
+            }
+        },
+        "estrategia": {
+            "estratega": {
+                "es": "ESTRATEGA",
+                "en": "STRATEGIC",
+                "de": "STRATEGISCH"
+            },
+            "impulsivo": {
+                "es": "IMPULSIVO",
+                "en": "IMPULSIVE",
+                "de": "IMPULSIV"
+            }
+        },
+        "resolutividad": {
+            "confrontacion": {
+                "es": "CONFRONTACIÓN",
+                "en": "CONFRONT",
+                "de": "ZUR KONFRONTIEREN"
+            },
+            "negociacion": {
+                "es": "NEGOCIACIÓN",
+                "en": "NEGOTIATE",
+                "de": "ZU VERHANDELN"
+            }
+        },
+        "trabajo": {
+            "trabajador": {
+                "es": "TRABAJADOR",
+                "en": "HARD WORKER",
+                "de": "FLEISSIG"
+            },
+            "holgazan": {
+                "es": "PEREZOSO/A",
+                "en": "LAZY PERSON",
+                "de": "FAUL"
+            }
+        },
+        "lugar": {
+            "ciudad": {
+                "es": "CIUDAD",
+                "en": "THE CITY",
+                "de": "IN DER STADT LEBEN"
+            },
+            "campo": {
+                "es": "CAMPO",
+                "en": "THE COUNTRYSIDE",
+                "de": "AUF DEM LAND LEBEN"
+            }
+        },
+        "humor": {
+            "buenhumor": {
+                "es": "BUEN HUMOR",
+                "en": "CHEERFUL",
+                "de": "GLÜCKLICH"
+            },
+            "malhumor": {
+                "es": "MAL HUMOR",
+                "en": "MOODY",
+                "de": "LAUNISCH"
+            }
+        },
+        "creatividad": {
+            "creativo": {
+                "es": "CREATIVO",
+                "en": "CREATIVE",
+                "de": "KREATIV"
+            },
+            "racional": {
+                "es": "RACIONAL",
+                "en": "ANALYTICAL",
+                "de": "RATIONAL"
+            }
+        },
+        "juicio": {
+            "hechos": {
+                "es": "HECHOS",
+                "en": "FACTS",
+                "de": "EMPIRISCH ANGEHEN"
+            },
+            "emociones": {
+                "es": "INTUICIÓN",
+                "en": "INTUITION",
+                "de": "EMOTIONAL ANGEHEN"
+            }
+        },
+        "horario": {
+            "diurno": {
+                "es": "MADRUGADOR/A",
+                "en": "EARLY BIRD",
+                "de": "EIN MORGENMENSCH"
+            },
+            "nocturno": {
+                "es": "NOCTURNO/A",
+                "en": "NIGHT OWL",
+                "de": "EIN NACHTMENSCH"
+            }
+        },
+        "alea": {
+            "aleaiactaest": {
+                "es": "ΑΝΕΡΡΙΦΘΩ ΚΥΒΟΣ!",
+                "en": "ΑΝΕΡΡΙΦΘΩ ΚΥΒΟΣ!",
+                "de": "ΑΝΕΡΡΙΦΘΩ ΚΥΒΟΣ!"
+            },
+            "lasuerteesta": {
+                "es": "¡LA SUERTE ESTÁ ECHADA!",
+                "en": "THE DIE IS CAST!",
+                "de": "DIE WÜRFEL SIND GEFALLEN!"
+            },
+            "resultados": {
+                "es": "VER RESULTADOS",
+                "en": "SEE RESULTS",
+                "de": "ZU DEINEM ERGEBNIS"
+            }
+        },
+        "resultado": {
+            "tudioses": {
+                "es": "TU GUÍA EN LA ODISEA ES...",
+                "en": "YOUR GUIDE ON THE ODYSSEY IS...",
+                "de": "DEIN BEGLEITER AUF DER ODYSSEE IST..."
+            },
+            "imprimir": {
+                "es": "IMPRIMIR",
+                "en": "PRINT",
+                "de": "DRUCKEN"
+            },
+            "sinimprimir": {
+                "es": "FINALIZAR SIN IMPRIMIR",
+                "en": "END WITHOUT PRINTING",
+                "de": "BEENDEN OHNE DRUCKEN"
+            },
+            "contenidoresultado": {
+                "es": {
+                    "": "",
+                    "Demeter": "DIOSA DE LA AGRICULTURA, LAS COSECHAS Y LA FERTILIDAD DE LA TIERRA.",
+                    "Artemisa": "DIOSA DE LA CAZA, LA NATURALEZA SALVAJE Y LA LUNA.",
+                    "Apolo": "DIOS DEL SOL, LA MÚSICA, LA POESÍA, LA PROFECÍA Y LA CURACIÓN.",
+                    "Zeus": "DIOS DE DIOSES, SEÑOR DEL TRUENO, PROTECTOR DE LAS LEYES Y LA JUSTICIA.",
+                    "Hera": "REINA DE LOS DIOSES, PROTECTORA DEL MATRIMONIO, LA FAMILIA Y LAS MUJERES.",
+                    "Ares": "DIOS DE LA GUERRA, LA FUERZA BRUTAL Y LA VALENTÍA EN EL COMBATE.",
+                    "Hermes": "DIOS MENSAJERO, GUÍA DE LOS VIAJEROS, EL COMERCIO Y LA ASTUCIA.",
+                    "Atena": "DIOSA DE LA SABIDURÍA, LA ESTRATEGIA MILITAR Y LA ARTESANÍA.",
+                    "Poseidon": "SEÑOR DE LOS MARES, LOS OCÉANOS, LOS TERREMOTOS Y LOS CABALLOS.",
+                    "Afrodita": "DIOSA DEL AMOR, LA BELLEZA, LA PASIÓN Y EL DESEO.",
+                    "Hestia": "DIOSA DEL HOGAR, EL FUEGO SAGRADO Y LA ARMONÍA FAMILIAR.",
+                    "Hefesto": "DIOS DEL FUEGO, LA FORJA, LA METALURGIA Y LA ARTESANÍA."
+                },
+                "en": {
+                    "": "",
+                    "Demeter": "GODDESS OF AGRICULTURE, HARVEST, AND THE FERTILITY OF THE EARTH.",
+                    "Artemisa": "GODDESS OF THE HUNT, WILD NATURE, AND THE MOON.",
+                    "Apolo": "GOD OF THE SUN, MUSIC, POETRY, PROPHECY, AND HEALING.",
+                    "Zeus": "GOD OF GODS, LORD OF THUNDER, PROTECTOR OF LAWS AND JUSTICE.",
+                    "Hera": "QUEEN OF THE GODS, PROTECTOR OF MARRIAGE, FAMILY, AND WOMEN.",
+                    "Ares": "GOD OF WAR, BRUTAL FORCE, AND COURAGE IN COMBAT.",
+                    "Hermes": "MESSENGER GOD, GUIDE OF TRAVELERS, COMMERCE, AND WIT.",
+                    "Atena": "GODDESS OF WISDOM, MILITARY STRATEGY, AND CRAFTS.",
+                    "Poseidon": "LORD OF THE SEAS, OCEANS, EARTHQUAKES, AND HORSES.",
+                    "Afrodita": "GODDESS OF LOVE, BEAUTY, PASSION, AND DESIRE.",
+                    "Hestia": "GODDESS OF THE HEARTH, SACRED FIRE, AND FAMILY HARMONY.",
+                    "Hefesto": "GOD OF FIRE, THE FORGE, METALLURGY, AND CRAFTSMANSHIP."
+                },
+                "de": {
+                    "": "",
+                    "Demeter": "GÖTTIN DES ACKERBAUS, DER ERNTE UND DER FRUCHTBARKEIT DER ERDE.",
+                    "Artemisa": "GÖTTIN DER JAGD, DER WILDEN NATUR UND DES MONDES.",
+                    "Apolo": "GOTT DER SONNE, DER MUSIK, DER DICHTKUNST, DER PROPHEZEIUNG UND DER HEILKUNDE.",
+                    "Zeus": "GOTT DER GÖTTER, HERR DES DONNERS, BESCHÜTZER DER GESETZE UND DER GERECHTIGKEIT.",
+                    "Hera": "KÖNIGIN DER GÖTTER, BESCHÜTZERIN DER EHE, DER FAMILIE UND DER FRAUEN.",
+                    "Ares": "GOTT DES KRIEGES, DER BRUTALEN KRAFT UND DES MUTES IM KAMPF.",
+                    "Hermes": "GÖTTERBOTE, BESCHÜTZER DER REISENDEN, DES HANDELS UND DER LIST.",
+                    "Atena": "GÖTTIN DER WEISHEIT, DER KRIEGSSTRATEGIE UND DES HANDWERKS.",
+                    "Poseidon": "HERR DER MEERE, DER OZEANE, DER ERDBEBEN UND DER PFERDE.",
+                    "Afrodita": "GÖTTIN DER LIEBE, DER SCHÖNHEIT, DER LEIDENSCHAFT UND DES VERLANGENS.",
+                    "Hestia": "GÖTTIN DES HERDES, DES HEILIGEN FEUERS UND DER FAMILIÄREN HARMONIE.",
+                    "Hefesto": "GOTT DES FEUERS, DER SCHMIEDE, DER METALLURGIE UND DES HANDWERKS."
+                }
+            },
+            "nombresdioses": {
+                "es": {
+                    "": "",
+                    "Demeter": "DEMÉTER",
+                    "Artemisa": "ARTEMISA",
+                    "Apolo": "APOLO",
+                    "Zeus": "ZEUS",
+                    "Hera": "HERA",
+                    "Ares": "ARES",
+                    "Hermes": "HERMES",
+                    "Atena": "ATENEA",
+                    "Poseidon": "POSEIDÓN",
+                    "Afrodita": "AFRODITA",
+                    "Hestia": "HESTIA",
+                    "Hefesto": "HEFESTO"
+                },
+                "en": {
+                    "": "",
+                    "Demeter": "DEMETER",
+                    "Artemisa": "ARTEMIS",
+                    "Apolo": "APOLLO",
+                    "Zeus": "ZEUS",
+                    "Hera": "HERA",
+                    "Ares": "ARES",
+                    "Hermes": "HERMES",
+                    "Atena": "ATHENA",
+                    "Poseidon": "POSEIDON",
+                    "Afrodita": "APHRODITE",
+                    "Hestia": "HESTIA",
+                    "Hefesto": "HEPHAESTUS"
+                },
+                "de": {
+                    "": "",
+                    "Demeter": "DEMETER",
+                    "Artemisa": "ARTEMIS",
+                    "Apolo": "APOLLON",
+                    "Zeus": "ZEUS",
+                    "Hera": "HERA",
+                    "Ares": "ARES",
+                    "Hermes": "HERMES",
+                    "Atena": "ATHENE",
+                    "Poseidon": "POSEIDON",
+                    "Afrodita": "APHRODITE",
+                    "Hestia": "HESTIA",
+                    "Hefesto": "HEPHAISTOS"
+                }
+            }
+        },
+        "enviar": {
+            "quieresllevarte": {
+                "es": "¿QUIERES LLEVARTE A TU DIOS COMO RECUERDO?",
+                "en": "WOULD YOU LIKE TO TAKE YOUR GOD HOME AS A SOUVENIR?",
+                "de": "MÖCHTEST DU DEINE GOTTHEIT ALS SOUVENIR MITNEHMEN?"
+            },
+            "pidecopia": {
+                "es": "PIDE TU COPIA EN RECEPCIÓN O EMPIEZA DE NUEVO",
+                "en": "ASK FOR YOUR COPY AT RECEPTION OR START AGAIN",
+                "de": "FRAGE NACH DEINEM AUSDRUCK AM EMPFANG. NEUSTART."
+            },
+            "precioventa": {
+                "es": "PRECIO: 5€",
+                "en": "PRICE: €5",
+                "de": "PREIS: 5 €"
+            },
+            "confirmaryrecoger": {
+                "es": "CONFIRMAR E IMPRIMIR",
+                "en": "CONFIRM AND PRINT",
+                "de": "BESTÄTIGEN UND DRUCKEN"
+            },
+            "comenzardenuevo": {
+                "es": "COMENZAR DE NUEVO",
+                "en": "START OVER",
+                "de": "NEUSTART"
+            }
+        },
+        "yapuedes": {
+            "yapuedes": {
+                "es": "¡YA PUEDES RECOGERLO!",
+                "en": "YOUR COPY IS READY TO BE COLLECTED!",
+                "de": "DEIN AUSDRUCK LIEGT ZUR ABHOLUNG BEREIT!!"
+            },
+            "vuelveajugar": {
+                "es": "VUELVE A JUGAR",
+                "en": "PLAY AGAIN",
+                "de": "NOCH EINMAL SPIELEN"
+            }
+        }
+    }
+}
