@@ -29,8 +29,7 @@ const Estrategia: React.FC<EstrategiaProps> = ({
 
   return (
     <div
-      className={`flex flex-col justify-right mr-24 pr-24  
-    ${
+      className={`question-answers flex flex-col justify-right mr-24 pr-24 ${
       isVisible ? "transition-opacity duration-1000 opacity-100" : "  opacity-0"
     }`}
     >
@@ -39,7 +38,7 @@ const Estrategia: React.FC<EstrategiaProps> = ({
           <div className=" mr-24 pr-24">
             <button
               className="w-600  h-200 px-20 py-10   mr-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")' }}
+              style={{ backgroundImage: 'url("/boton.png")' }}
               onClick={() => handleOptionClick("ESTRATEGA")}
             >
         {Content.cuestionario.estrategia.estratega[lang]}
@@ -49,7 +48,7 @@ const Estrategia: React.FC<EstrategiaProps> = ({
           <div className=" mr-24 pr-24">
             <button
               className="w-600  h-200 px-20 py-10   mr-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")' }}
+              style={{ backgroundImage: 'url("/boton.png")' }}
               onClick={() => handleOptionClick("IMPULSIVO")}
             >
         {Content.cuestionario.estrategia.impulsivo[lang]}

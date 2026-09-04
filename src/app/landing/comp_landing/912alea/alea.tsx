@@ -1,36 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useSpring, animated } from "react-spring";
+import React from "react";
 import Content from "../../../contenido/contenidoTotem.json";
 import {AleaProps } from "../../../contenido/interfaces";
 
 
 const Alea: React.FC<AleaProps> = ({ setComponenteActual, lang }) => {
-  // State to manage the visibility of the component
-
-  const [isVisible, setIsVisible] = useState(true);
-  const springAnimation = useSpring({
-    opacity: isVisible ? 1 : 0,
-    config: { duration: 500 },
-    onRest: () => {
-      if (!isVisible) {
-        setIsVisible(true);
-        setComponenteActual("resultado");
-      }
-    },
-  });
-
   const handleSeguirClick = () => {
-    setIsVisible(false);
+    setComponenteActual("resultado");
   };
 
   return (
-    <animated.div
-      style={springAnimation}
-      className="flex flex-col text-center justify-center"
-    >
-       <h2 className="text-8xl  "> {Content.cuestionario.alea.aleaiactaest[lang]}
+    <div className="flex flex-col text-center justify-center">
+       <h2 className="text-[110px]"> {Content.cuestionario.alea.aleaiactaest[lang]}
        </h2>
-      <h2 className="text-8xl mb-20"> {Content.cuestionario.alea.lasuerteesta[lang]}
+      <h2 className="mb-20 text-[110px]"> {Content.cuestionario.alea.lasuerteesta[lang]}
       </h2>
 
       <div className="mx-20">
@@ -41,7 +23,7 @@ const Alea: React.FC<AleaProps> = ({ setComponenteActual, lang }) => {
         {Content.cuestionario.alea.resultados[lang]}
         </button>
         </div> 
-     </animated.div>
+     </div>
   );
 };
 

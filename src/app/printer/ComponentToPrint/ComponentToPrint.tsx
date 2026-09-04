@@ -1,86 +1,50 @@
-"use client"; // Asegúrate de que este archivo se ejecute en el cliente
+"use client";
 
-import React, { useState, useEffect } from 'react';
+import React from "react";
+import { Dioses, Language } from "../../contenido/interfaces";
 
-const ComponentToPrint = React.forwardRef(function ComponentToPrint(
-  { nombre, tuDios, tulang, contenidoprint }: { nombre: string; tuDios: string; tulang: string; contenidoprint: string; },
-  ref: React.Ref<HTMLDivElement>
-) {
-  const imagendios = `./DEUSPOMPEIA/${tuDios}.png`;
-  const [godToShow, setGodToShow] = useState<any>();
+type PrintableGod = Exclude<Dioses, "">;
 
-  const godsTranslation: any = {
-    "en": {
-      "": "",
-      "Demeter": "DEMETER", "Artemisa": "ARTEMIS", "Apolo": "APOLLO",
-      "Zeus": "ZEUS", "Hera": "HERA", "Ares": "ARES", "Hermes": "HERMES",
-      "Atena": "ATHENA", "Poseidon": "POSEIDON", "Afrodita": "APHRODITE",
-      "Hestia": "HESTIA", "Hefesto": "HEPHAESTUS"
-    },
-    "de": {
-      "": "",
-      "Demeter": "DEMETER", "Artemisa": "ARTEMIS", "Apolo": "APOLLON",
-      "Zeus": "ZEUS", "Hera": "HERA", "Ares": "ARES", "Hermes": "HERMES",
-      "Atena": "ATHENE", "Poseidon": "POSEIDON", "Afrodita": "APHRODITE",
-      "Hestia": "HESTIA", "Hefesto": "HEPHAISTOS"
-    }
-  };
+const godNames: Record<Language, Record<PrintableGod, string>> = {
+  en: { Demeter: "DEMETER", Artemisa: "ARTEMIS", Apolo: "APOLLO", Zeus: "ZEUS", Hera: "HERA", Ares: "ARES", Hermes: "HERMES", Atena: "ATHENA", Poseidon: "POSEIDON", Afrodita: "APHRODITE", Hestia: "HESTIA", Hefesto: "HEPHAESTUS" },
+  es: { Demeter: "DEMÉTER", Artemisa: "ARTEMISA", Apolo: "APOLO", Zeus: "ZEUS", Hera: "HERA", Ares: "ARES", Hermes: "HERMES", Atena: "ATENEA", Poseidon: "POSEIDÓN", Afrodita: "AFRODITA", Hestia: "HESTIA", Hefesto: "HEFESTO" },
+  de: { Demeter: "DEMETER", Artemisa: "ARTEMIS", Apolo: "APOLLON", Zeus: "ZEUS", Hera: "HERA", Ares: "ARES", Hermes: "HERMES", Atena: "ATHENE", Poseidon: "POSEIDON", Afrodita: "APHRODITE", Hestia: "HESTIA", Hefesto: "HEPHAISTOS" },
+};
 
-  useEffect(() => {
-    if (tulang === "es") {
-      setGodToShow(tuDios);
-    } else {
-      setGodToShow(godsTranslation[tulang][tuDios]);
-    }
-  }, [tulang, tuDios]);
+const guideText: Record<Language, string> = {
+  es: "TU DIVINIDAD REGENTE ES",
+  en: "YOUR GUIDING DEITY IS",
+  de: "DEINE FÜHRENDE GOTTHEIT IST",
+};
 
-  return (
-    <div>
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
-        `}
-      </style>
-      <div
-        ref={ref}
-        className="h-screen flex justify-center text-center relative cinzel-font text-yellow-900 text-opacity-50 font-light"
-      >
-        <div className="flex flex-row text-left justify-center align-center px-20 pr-24 mx-14" style={{ zIndex: 1 }}>
-          <div className="flex-1 flex flex-col pl-14 ml-12 py-20 pr-2 justify-left">
-            <h1 className="text-5xl pt-24">{nombre}</h1>
-            {tulang == "de" && <p className="text-black text-2xl mt-2 mb-8">DEIN GOTT IST</p>}
-            {tulang == "es" && <p className="text-black text-2xl mt-2 mb-8">TU DIOS ES</p>}
-            {tulang == "en" && <p className="text-black text-2xl mt-2 mb-8">YOUR GOD IS</p>}
-            <h2 className="text-black text-5xl mb-4">{godToShow}</h2>
-            <div className="text-black">
-              <div className="text-lg mb-10 pr-5">{contenidoprint}</div>
-            </div>
-          </div>
-          <div className="flex-2 flex items-center justify-center">
-            <img
-              src={imagendios}
-              alt={tuDios}
-              width={400}
-              height={400}
-              className="pt-14 mr-10"
-            />
-          </div>
-        </div>
-        <p>TU LANG!!!!!!!!!! {tulang}</p>
-        <div className="absolute top-0 left-0 w-full h-full z-0">
-          <img
-            src="/f2.png"
-            alt="f3"
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        </div>
+interface ComponentToPrintProps {
+  nombre: string;
+  tuDios: Dioses;
+  tulang: Language;
+  contenidoprint: string;
+}
+
+const ComponentToPrint = React.forwardRef<HTMLDivElement, ComponentToPrintProps>(
+  function ComponentToPrint({ nombre, tuDios, tulang, contenidoprint }, ref) {
+    if (!tuDios) return null;
+
+    return (
+      <div ref={ref} className="print-sheet font-cinzel">
+        <img className="print-sheet-background" src="/PLANTILLA IMPRESION GOD.png" alt="" />
+        <section className="print-heading">
+          <h1>{nombre}</h1>
+          <p>ΑΝΕΡΡΙΦΘΩ ΚΥΒΟΣ!</p>
+          <p>{guideText[tulang]}</p>
+        </section>
+        <section className="print-god-copy">
+          <h2>{godNames[tulang][tuDios]}</h2>
+          <p>{contenidoprint}</p>
+        </section>
+        <img className="print-god-image" src={`/slides/DEUS/${tuDios}.png`} alt={godNames[tulang][tuDios]} />
       </div>
-    </div>
-  );
-});
+    );
+  },
+);
 
 ComponentToPrint.displayName = "ComponentToPrint";
 

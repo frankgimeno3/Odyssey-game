@@ -14,14 +14,12 @@ interface StoredResult {
 interface HandleVisualizarProps {
   file: StoredResult;
   setcontenidoprint: Dispatch<SetStateAction<string>>;
-  handlePrint: () => void;
 }
 
 const slogansByLanguage = { es: slogans, en: sloganseng, de: slogansde };
 
-export const handleVisualizar = ({ file, setcontenidoprint, handlePrint }: HandleVisualizarProps) => {
+export const handleVisualizar = ({ file, setcontenidoprint }: HandleVisualizarProps) => {
   if (!file.midios) return;
 
   setcontenidoprint(slogansByLanguage[file.lang][file.midios]);
-  handlePrint();
 };

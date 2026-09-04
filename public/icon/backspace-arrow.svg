@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" role="img" aria-labelledby="title">
+  <title id="title">Delete last character</title>
+  <defs>
+    <mask id="arrow-cutouts">
+      <rect width="300" height="150" fill="white" />
+      <path fill="black" d="m105 57 67-24-18 24Z" />
+      <path fill="black" d="m105 93 49 0 18 24Z" />
+    </mask>
+  </defs>
+  <g fill="#b6926b" mask="url(#arrow-cutouts)">
+    <path d="M18 75 205 10l-36 48h39l22 2h52v30h-52l-22 2h-39l36 48Z" />
+  </g>
+</svg>

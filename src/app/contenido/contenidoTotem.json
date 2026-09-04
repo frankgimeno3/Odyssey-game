@@ -34,9 +34,9 @@
                 "de": "TRAGE DEINEN NAMEN EIN"
             },
             "caracteres10": {
-                "es": "HASTA 10 CARACTERES",
-                "en": "10 CHARACTERS MAXIMUM",
-                "de": "MAX. 10 ZEICHEN"
+                "es": "(HASTA 10 CARACTERES)",
+                "en": "(10 CHARACTERS MAXIMUM)",
+                "de": "(MAX. 10 ZEICHEN)"
             },
             "seguir": {
                 "es": "CONTINUAR",
@@ -51,7 +51,7 @@
                 "de": "SEI GEGRÜSST!"
             },
             "bienvenidosalolimpo": {
-                "es": "BIENVENIDOS AL OLIMPO",
+                "es": "CONOCE A LOS DIOSES GRIEGOS",
                 "en": "MEET THE GREEK GODS",
                 "de": "LERNE DIE GRIECHISCHEN GÖTTER KENNEN"
             },
@@ -66,19 +66,19 @@
                 "de": "WAGE ZU WISSEN! ODER WIE DIE ALTEN GRIECHEN SAGTEN... ΓΝΩΘΙ ΣΑΥΤΟΝ!"
             },
             "empezar": {
-                "es": "EMPEZAR",
+                "es": "COMENZAR",
                 "en": "START",
-                "de": "START"
+                "de": "BEGINNEN"
             }
         },
         "conflicto": {
             "pacifico": {
-                "es": "PACÍFICO",
+                "es": "PACÍFICO/A",
                 "en": "PEACEFUL",
                 "de": "FRIEDFERTIG"
             },
             "guerrero": {
-                "es": "GUERRERO",
+                "es": "GUERRERO/A",
                 "en": "WARRIOR",
                 "de": "KRIEGER"
             }
@@ -97,36 +97,36 @@
         },
         "estrategia": {
             "estratega": {
-                "es": "ESTRATEGA",
+                "es": "ESTRATÉGICO/A",
                 "en": "STRATEGIC",
                 "de": "STRATEGISCH"
             },
             "impulsivo": {
-                "es": "IMPULSIVO",
+                "es": "IMPULSIVO/A",
                 "en": "IMPULSIVE",
                 "de": "IMPULSIV"
             }
         },
         "resolutividad": {
             "confrontacion": {
-                "es": "CONFRONTACIÓN",
+                "es": "CONFRONTAR",
                 "en": "CONFRONT",
                 "de": "ZUR KONFRONTIEREN"
             },
             "negociacion": {
-                "es": "NEGOCIACIÓN",
+                "es": "NEGOCIAR",
                 "en": "NEGOTIATE",
                 "de": "ZU VERHANDELN"
             }
         },
         "trabajo": {
             "trabajador": {
-                "es": "TRABAJADOR",
+                "es": "TRABAJADORA",
                 "en": "HARD WORKER",
                 "de": "FLEISSIG"
             },
             "holgazan": {
-                "es": "PEREZOSO/A",
+                "es": "PEREZOSA",
                 "en": "LAZY PERSON",
                 "de": "FAUL"
             }
@@ -145,19 +145,19 @@
         },
         "humor": {
             "buenhumor": {
-                "es": "BUEN HUMOR",
+                "es": "DE BUEN HUMOR",
                 "en": "CHEERFUL",
                 "de": "GLÜCKLICH"
             },
             "malhumor": {
-                "es": "MAL HUMOR",
+                "es": "MALHUMORADO",
                 "en": "MOODY",
                 "de": "LAUNISCH"
             }
         },
         "creatividad": {
             "creativo": {
-                "es": "CREATIVO",
+                "es": "CREATIVA",
                 "en": "CREATIVE",
                 "de": "KREATIV"
             },
@@ -181,12 +181,12 @@
         },
         "horario": {
             "diurno": {
-                "es": "MADRUGADOR/A",
+                "es": "MADRUGADORA",
                 "en": "EARLY BIRD",
                 "de": "EIN MORGENMENSCH"
             },
             "nocturno": {
-                "es": "NOCTURNO/A",
+                "es": "NOCTURNA",
                 "en": "NIGHT OWL",
                 "de": "EIN NACHTMENSCH"
             }
@@ -203,12 +203,17 @@
                 "de": "DIE WÜRFEL SIND GEFALLEN!"
             },
             "resultados": {
-                "es": "VER RESULTADOS",
+                "es": "RESULTADOS",
                 "en": "SEE RESULTS",
                 "de": "ZU DEINEM ERGEBNIS"
             }
         },
         "resultado": {
+            "titulo": {
+                "es": "LA ODISEA",
+                "en": "THE ODYSSEY",
+                "de": "DIE ODYSSEE"
+            },
             "tudioses": {
                 "es": "TU GUÍA EN LA ODISEA ES...",
                 "en": "YOUR GUIDE ON THE ODYSSEY IS...",

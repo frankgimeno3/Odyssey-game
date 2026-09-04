@@ -3,11 +3,12 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Restartbutton from "../../components/RestartButton";
-import RenderComponenteActual from "../renderComponenteActual"; // Asegúrate de que la ruta sea correcta
+import RenderComponenteActual from "../renderComponenteActual"; // AsegÃƒÂºrate de que la ruta sea correcta
 import { Dioses, Language } from "@/app/contenido/interfaces";
 import QuestionPrompt from "../comp_landing/QuestionPrompt";
+import useStageTransition from "../useStageTransition";
 
-// Componente para manejar la transición de opacidad
+// Componente para manejar la transiciÃƒÂ³n de opacidad
 const FadeInOut = ({ children, visible }: { children: React.ReactNode, visible: boolean }) => {
   return (
     <div
@@ -22,8 +23,11 @@ const FadeInOut = ({ children, visible }: { children: React.ReactNode, visible: 
 const FadeInOut2 = ({ children, visible }: { children: React.ReactNode, visible: boolean }) => {
   return (
     <div
-      className={`transition-opacity duration-9000 ${visible ? 'opacity-100' : 'opacity-0'} pointer-events-${visible ? 'auto' : 'none'}`}
-      style={{ zIndex: visible ? 50 : -1 }}
+      className={`transition-opacity ${visible ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
+      style={{
+        zIndex: visible ? 50 : -1,
+        transition: "opacity 450ms ease-in-out",
+      }}
     >
       {children}
     </div>
@@ -32,7 +36,7 @@ const FadeInOut2 = ({ children, visible }: { children: React.ReactNode, visible:
 
 const Cuestionario = () => {
   const [lang, setLang] = useState<Language>("de");
-  const [componenteactual, setComponenteActual] = useState("nombre");
+  const { stage: componenteactual, phase, setStageWithTransition: setComponenteActual } = useStageTransition("nombre");
   const [nombre, setNombre] = useState("");
   const [conflicto, setConflicto] = useState("");
   const [relaciones, setRelaciones] = useState("");
@@ -45,7 +49,6 @@ const Cuestionario = () => {
   const [juicio, setJuicio] = useState("");
   const [horario, setHorario] = useState("");
   const [midios, setmidios] = useState<Dioses>("");
-  const [loadingvisible, setloadingvisible] = useState(false);
   const [fondo, setFondo] = useState(`url("/fondo2.png")`);
   const [fadeVisible, setFadeVisible] = useState(true);
 
@@ -53,77 +56,81 @@ const Cuestionario = () => {
     setFadeVisible(false);
     const fadeTimeout = setTimeout(() => {
       setFadeVisible(true);
-    }, 100); // Temporizador para asegurar que la transición ocurra después del cambio de fondo
+    }, 100); // Temporizador para asegurar que la transiciÃƒÂ³n ocurra despuÃƒÂ©s del cambio de fondo
 
     return () => clearTimeout(fadeTimeout);
   }, [fondo]);
 
   useEffect(() => {
+    if (["conflicto", "relaciones", "estrategia", "resolutividad", "trabajo", "lugar", "humor", "creatividad", "juicio", "horario", "alea", "resultado", "enviar"].includes(componenteactual)) {
+      return;
+    }
+
     switch (componenteactual) {
       case "conflicto":
-        setFondo(`url("/f2.png")`);
+        setFondo(`url("/Fondo oscurecido.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/1.png")`);
+          setFondo(`url("/Fondo oscurecido.png")`);
         }, 600);
         break;
       case "relaciones":
-        setFondo(`url("/f2.png")`);
+        setFondo(`url("/Fondo oscurecido.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/2.png")`);
+          setFondo(`url("/Fondo oscurecido.png")`);
         }, 600);
         break;
       case "estrategia":
-        setFondo(`url("/f2.png")`);
+        setFondo(`url("/Fondo oscurecido.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/3.png")`);
+          setFondo(`url("/Fondo oscurecido.png")`);
         }, 600);
         break;
       case "resolutividad":
-        setFondo(`url("/f2.png")`);
+        setFondo(`url("/Fondo oscurecido.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/4.png")`);
+          setFondo(`url("/Fondo oscurecido.png")`);
         }, 600);
         break;
       case "trabajo":
-        setFondo(`url("/f2.png")`);
+        setFondo(`url("/Fondo oscurecido.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/5.png")`);
+          setFondo(`url("/Fondo oscurecido.png")`);
         }, 600);
         break;
       case "lugar":
-        setFondo(`url("/f2.png")`);
+        setFondo(`url("/Fondo oscurecido.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/6.png")`);
+          setFondo(`url("/Fondo oscurecido.png")`);
         }, 600);
         break;
       case "humor":
-        setFondo(`url("/f2.png")`);
+        setFondo(`url("/Fondo oscurecido.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/7.png")`);
+          setFondo(`url("/Fondo oscurecido.png")`);
         }, 600);
         break;
       case "creatividad":
-        setFondo(`url("/f2.png")`);
+        setFondo(`url("/Fondo oscurecido.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/8.png")`);
+          setFondo(`url("/Fondo oscurecido.png")`);
         }, 600);
         break;
       case "juicio":
-        setFondo(`url("/f2.png")`);
+        setFondo(`url("/Fondo oscurecido.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/9.png")`);
+          setFondo(`url("/Fondo oscurecido.png")`);
         }, 600);
         break;
       case "horario":
-        setFondo(`url("/f2.png")`);
+        setFondo(`url("/Fondo oscurecido.png")`);
         setTimeout(() => {
-          setFondo(`url("/preguntas/10.png")`);
+          setFondo(`url("/Fondo oscurecido.png")`);
         }, 600);
         break;
       case "resultado":
         setFondo(`url("/fondo2.png")`);
         setTimeout(() => {
-          setFondo(`url("/PortfolioEnvio.png")`);
+          setFondo(`url("/slides/PREPRINT-HD.png")`);
         }, 600);
         break;
       default:
@@ -132,18 +139,15 @@ const Cuestionario = () => {
     }
   }, [componenteactual]);
 
-  useEffect(() => {
-    setloadingvisible(true);
-    setTimeout(() => {
-      setloadingvisible(false);
-    }, 600);
-  }, [componenteactual]);
-
   return (
     <div
       className="flex flex-col h-screen mx-auto"
       style={{
-        backgroundImage: `url("/f2.png")`,
+        backgroundImage: componenteactual === "alea"
+          ? `url("/fondo1.png")`
+          : ["conflicto", "relaciones", "estrategia", "resolutividad", "trabajo", "lugar", "humor", "creatividad", "juicio", "horario"].includes(componenteactual)
+          ? `url("/Fondo oscurecido.png")`
+          : `url("/Fondo oscurecido.png")`,
         backgroundSize: "100% 100%",
         backgroundPosition: "center",
       }}
@@ -155,13 +159,15 @@ const Cuestionario = () => {
           <div
             className="relative h-screen flex flex-col justify-center text-center transition-opacity duration-2000"
             style={{
-              backgroundImage: fondo,
+              backgroundImage: ["conflicto", "relaciones", "estrategia", "resolutividad", "trabajo", "lugar", "humor", "creatividad", "juicio", "horario", "alea", "resultado", "enviar"].includes(componenteactual) ? "none" : fondo,
               backgroundSize: "100% 100%",
               backgroundPosition: "center",
             }}
           >
-            <QuestionPrompt component={componenteactual} lang={lang} />
-            <FadeInOut2 visible={loadingvisible}>
+            <FadeInOut2 visible={phase === "idle" || phase === "in"}>
+              <QuestionPrompt key={componenteactual} component={componenteactual} lang={lang} />
+            </FadeInOut2>
+            <FadeInOut2 visible={phase === "loading"}>
               <div className="absolute z-50 inset-0 flex items-center justify-center">
                 <div className="p-4 rounded opacity-90">
                   <Image
@@ -179,7 +185,7 @@ const Cuestionario = () => {
               <Restartbutton />
             </div>
 
-            <FadeInOut2 visible={!loadingvisible}>
+            <FadeInOut2 visible={phase === "idle" || phase === "in"}>
               <RenderComponenteActual
                 lang={lang}
                 componenteactual={componenteactual}

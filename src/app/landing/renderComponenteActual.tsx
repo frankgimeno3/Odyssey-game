@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect, FC } from "react";
+import React, { ReactNode, FC } from "react";
 import Nombre from "./comp_landing/1nombre/nombre";
 import Nombrehola from "./comp_landing/1nombrehola/nombrehola";
 import Conflicto from "./comp_landing/2conflicto/conflicto";
@@ -76,14 +76,11 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
   horario,
   midios,
 }) => {
-  const [component, setComponent] = useState<ReactNode>(null);
-
-  useEffect(() => {
-    let newComponent: ReactNode = null;
+  let component: ReactNode = null;
 
     switch (componenteactual) {
       case "nombre":
-        newComponent = (
+        component = (
           <Nombre
             setComponenteActual={setComponenteActual}
             setNombre={setNombre}
@@ -92,7 +89,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "nombrehola":
-        newComponent = (
+        component = (
           <Nombrehola
             setComponenteActual={setComponenteActual}
             nombre={nombre}
@@ -101,7 +98,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "conflicto":
-        newComponent = (
+        component = (
           <Conflicto
             setComponenteActual={setComponenteActual}
             setConflicto={setConflicto}
@@ -110,7 +107,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "relaciones":
-        newComponent = (
+        component = (
           <Relaciones
             setComponenteActual={setComponenteActual}
             setRelaciones={setRelaciones}
@@ -119,7 +116,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "estrategia":
-        newComponent = (
+        component = (
           <Estrategia
             setComponenteActual={setComponenteActual}
             setEstrategia={setEstrategia}
@@ -128,7 +125,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "resolutividad":
-        newComponent = (
+        component = (
           <Resolutividad
             setComponenteActual={setComponenteActual}
             setResolutividad={setResolutividad}
@@ -137,7 +134,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "trabajo":
-        newComponent = (
+        component = (
           <Trabajo
             setComponenteActual={setComponenteActual}
             setTrabajo={setTrabajo}
@@ -146,7 +143,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "lugar":
-        newComponent = (
+        component = (
           <Lugar
             setComponenteActual={setComponenteActual}
             setLugar={setLugar}
@@ -155,7 +152,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "humor":
-        newComponent = (
+        component = (
           <Humor
             setComponenteActual={setComponenteActual}
             setHumor={setHumor}
@@ -164,7 +161,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "creatividad":
-        newComponent = (
+        component = (
           <Creatividad
             setComponenteActual={setComponenteActual}
             setCreatividad={setCreatividad}
@@ -173,7 +170,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "juicio":
-        newComponent = (
+        component = (
           <Juicio
             setComponenteActual={setComponenteActual}
             setJuicio={setJuicio}
@@ -182,7 +179,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "horario":
-        newComponent = (
+        component = (
           <Horario
             setComponenteActual={setComponenteActual}
             setHorario={setHorario}
@@ -191,7 +188,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "alea":
-        newComponent = (
+        component = (
           <Alea
             setComponenteActual={setComponenteActual}
             lang={lang}
@@ -199,7 +196,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "resultado":
-        newComponent = (
+        component = (
           <Resultado
             setComponenteActual={setComponenteActual}
             setmidios={(value) => {
@@ -235,7 +232,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "enviar":
-        newComponent = (
+        component = (
           <Enviar
             setComponenteActual={setComponenteActual}
             nombre={nombre}
@@ -245,7 +242,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       case "yapuedes":
-        newComponent = (
+        component = (
           <Yapuedes
             setComponenteActual={setComponenteActual}
             lang={lang}
@@ -253,11 +250,8 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
         );
         break;
       default:
-        newComponent = null;
+        component = null;
     }
-
-    setComponent(newComponent);
-  }, [componenteactual, lang, nombre, setComponenteActual, setNombre, setConflicto, setRelaciones, setEstrategia, setResolutividad, setTrabajo, setLugar, setHumor, setCreatividad, setJuicio, setHorario, setmidios, conflicto, relaciones, estrategia, resolutividad, trabajo, lugar, humor, creatividad, juicio, horario, midios]);
 
   const isValidDios = (value: string): value is Dioses => {
     return [
@@ -266,21 +260,7 @@ const RenderComponenteActual: FC<RenderComponenteActualProps> = ({
     ].includes(value);
   };
 
-  const FadeInOut = ({ children }: { children: ReactNode }) => {
-    const [visible, setVisible] = useState(false);
-
-    useEffect(() => {
-      setVisible(true);
-    }, [children]);
-
-    return (
-      <div className={`transition-opacity duration-1000 ${visible ? 'opacity-100' : 'opacity-0'}`}>
-        {children}
-      </div>
-    );
-  };
-
-  return <FadeInOut>{component}</FadeInOut>;
+  return component;
 };
 
 export default RenderComponenteActual;

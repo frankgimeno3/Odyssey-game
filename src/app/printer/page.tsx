@@ -38,6 +38,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
   const [contenidoprint, setcontenidoprint] = useState("");
   const [currentOrder, setCurrentOrder] = useState<string>("");
   const [selectedRowData, setSelectedRowData] = useState<File | null>(null);
+  const [printRequested, setPrintRequested] = useState(false);
 
   const typedContent: PrinterContent = Content as PrinterContent;
 
@@ -98,14 +99,25 @@ const Printer: FC<PrinterProps> = ({ }) => {
       handleVisualizar({
           file,
           setcontenidoprint,
-          handlePrint,
       });
+      setPrintRequested(true);
   };
 
   const handlePrint = useReactToPrint({
       content: () => componentRef.current,
-      pageStyle: "@page { size: landscape; }",
+      pageStyle: "@page { size: A4 landscape; margin: 0; } body { margin: 0; }",
   });
+
+  useEffect(() => {
+      if (!printRequested || !selectedRowData || !componentRef.current) return;
+
+      const frame = window.requestAnimationFrame(() => {
+          handlePrint();
+          setPrintRequested(false);
+      });
+
+      return () => window.cancelAnimationFrame(frame);
+  }, [contenidoprint, handlePrint, printRequested, selectedRowData]);
 
   return (
       <div className="flex min-h-screen w-screen bg-gray-100 ">
@@ -117,7 +129,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                       <h2 className="mb-4 ml-3 text-lg">{typedContent.subtitulo[printerLang]}</h2>
                   </div>
                   <div className="mr-20 bg-white p-5 ">
-                      <table className="text-xs border border-gray-300 bg-white w-full text-left">
+                      <table className="w-full border border-gray-300 bg-white text-left text-xs text-slate-800">
                           <thead>
                               <tr className="border border-gray-300">
                                   <th

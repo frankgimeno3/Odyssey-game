@@ -15,16 +15,16 @@
   },
   {
     "es": {
-      "1": "EN UNA SITUACIÓN DE CONFLICTO ERES...",
-      "2": "EN LAS RELACIONES AMOROSAS ERES...",
-      "3": "EN TU DÍA A DÍA ERES...",
-      "4": "ANTE UNA SITUACIÓN PROBLEMÁTICA TIENDES A...",
-      "5": "TE CONSIDERAS...",
-      "6": "TE GUSTA MÁS VIVIR EN...",
-      "7": "EN TU DÍA A DÍA SUELES TENER...",
-      "8": "TE CONSIDERAS...",
-      "9": "SI TIENES QUE JUZGAR A UNA PERSONA POR SUS ACTOS...",
-      "10": "TE CONSIDERAS..."
+      "1": "EN UNA SITUACIÓN DE CONFLICTO, ERES...",
+      "2": "EN LAS RELACIONES AMOROSAS, ERES...",
+      "3": "EN TU VIDA DIARIA, ERES...",
+      "4": "ANTE UNA SITUACIÓN PROBLEMÁTICA, TIENDES A...",
+      "5": "TE CONSIDERAS UNA PERSONA...",
+      "6": "¿DÓNDE PREFERIRÍAS VIVIR?",
+      "7": "TIENDES A ESTAR...",
+      "8": "TE DEFINES COMO UNA PERSONA...",
+      "9": "SI JUZGAS A ALGUIEN, LO HACES BASÁNDOTE EN...",
+      "10": "ERES MÁS BIEN UNA PERSONA..."
     }
   },
   {
@@ -36,8 +36,8 @@
       "5": "YOU SEE YOURSELF AS...",
       "6": "YOU WOULD RATHER LIVE IN...",
       "7": "YOU ARE MORE LIKELY TO BE...",
-      "8": "YOU DESCRIVE YOURSELF AS...",
-      "9": "IF YOU HAVE TO JUDGE A PERSON BY THEIR ACTS. YOU DO IT...",
+      "8": "YOU DESCRIBE YOURSELF AS...",
+      "9": "If you judge someone, you do it based on...",
       "10": "YOU ARE RATHER A..."
     }
   }

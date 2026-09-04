@@ -31,7 +31,7 @@ const Horario: React.FC<HorarioProps> = ({
 
   return (
     <div
-      className={`flex flex-col  justify-right ml-14 pl-14      ${isVisible
+      className={`question-answers flex flex-col  justify-right ml-14 pl-14      ${isVisible
           ? "transition-opacity duration-1000 opacity-100"
           : "  opacity-0"
         }`}
@@ -41,7 +41,7 @@ const Horario: React.FC<HorarioProps> = ({
           <div className="">
             <button
               className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
+              style={{ backgroundImage: 'url("/boton.png")', width: 700 }}
               onClick={() => handleOptionClick("DIURNO")}
             >
               {Content.cuestionario.horario.diurno[lang]}
@@ -51,7 +51,7 @@ const Horario: React.FC<HorarioProps> = ({
           <div className="">
             <button
               className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
+              style={{ backgroundImage: 'url("/boton.png")', width: 700 }}
               onClick={() => handleOptionClick("NOCTURNO")}
             >
               {Content.cuestionario.horario.nocturno[lang]}

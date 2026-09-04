@@ -31,7 +31,7 @@ const Conflicto: React.FC<ConflictoProps> = ({
 
   return (
     <div
-      className={`flex flex-col mt-14 pt-14 justify-right ml-24 pl-24 ${isVisible
+      className={`question-answers flex flex-col mt-14 pt-14 justify-right ml-24 pl-24 ${isVisible
           ? "transition-opacity duration-1000 opacity-100"
           : "  opacity-0"
         }`}
@@ -41,8 +41,8 @@ const Conflicto: React.FC<ConflictoProps> = ({
           <div className=" ml-24 pl-24">
             <button
               className="w-600  h-200 px-24 py-10   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")', width: 600 }}
-              onClick={() => handleOptionClick("PACÍFICO")}
+              style={{ backgroundImage: 'url("/boton.png")', width: 600 }}
+              onClick={() => handleOptionClick("PACÃFICO")}
             >
               {Content.cuestionario.conflicto.pacifico[lang]}
             </button>
@@ -51,7 +51,7 @@ const Conflicto: React.FC<ConflictoProps> = ({
           <div className=" ml-24 pl-24">
             <button
               className="w-600  h-200 px-20 py-10   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")', width: 600  }}
+              style={{ backgroundImage: 'url("/boton.png")', width: 600  }}
               onClick={() => handleOptionClick("GUERRERO")}
             >
               {Content.cuestionario.conflicto.guerrero[lang]}

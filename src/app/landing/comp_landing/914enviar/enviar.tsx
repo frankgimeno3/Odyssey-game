@@ -1,132 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import Content from "../../../contenido/contenidoTotem.json";
-import {EnviarProps } from "../../../contenido/interfaces";
+import { EnviarProps } from "../../../contenido/interfaces";
+import ResultCard from "../ResultCard";
 
-
-const Enviar: React.FC<EnviarProps> = ({
-  setComponenteActual,
-  nombre,
-  midios,
-  lang
-}) => {
-  const [selectedOption, setSelectedOption] = useState("");
-  const [showErrorMessage, setShowErrorMessage] = useState(false);
+const Enviar: React.FC<EnviarProps> = ({ setComponenteActual, nombre, midios, lang }) => {
   const router = useRouter();
   const [botonPulsado, setBotonPulsado] = useState(false);
 
-  const handleSeguirClick = async () => {
+  const handleSeguirClick = () => {
     setBotonPulsado(true);
-  
-    try {
-      const newFile = {
-        nombre,
-        midios,
-        lang,
-        updatedAt: new Date().toISOString(),  
-        id: crypto.randomUUID(),
-      };
-      const storedFiles = window.localStorage.getItem("odyssey-documents");
-      const files = storedFiles ? JSON.parse(storedFiles) : [];
-      window.localStorage.setItem("odyssey-documents", JSON.stringify([...files, newFile]));
-        setComponenteActual("yapuedes");
-    } catch (error) {
-      console.error("Ha ocurrido un error:", error);
-    }
-  };
-  
-
-  const handleRestart = () => {
-    router.push("/landing");
+    const newFile = { nombre, midios, lang, updatedAt: new Date().toISOString(), id: crypto.randomUUID() };
+    const storedFiles = window.localStorage.getItem("odyssey-documents");
+    const files = storedFiles ? JSON.parse(storedFiles) : [];
+    window.localStorage.setItem("odyssey-documents", JSON.stringify([...files, newFile]));
+    setComponenteActual("yapuedes");
   };
 
-  useEffect(() => {
-    setBotonPulsado(false);
-  }, []);
+  useEffect(() => setBotonPulsado(false), []);
 
-  const imagendios = `/DEUSPOMPEIA/${midios}.png`;
+  if (!midios) return null;
 
   return (
-    <div className="flex flex-col text-center items-center mb-24">
-      <p className="mb-7 text-black text-4xl">
-      {Content.cuestionario.enviar.quieresllevarte[lang]}      </p>
-      <Image
-        src="/PortfolioDiseño.png"
-        alt="PortfolioDiseño"
-        width={600}
-        height={600}
-        className="bg-white "
-      />
-
-      <p className="mt-6 text-black text-3xl">{Content.cuestionario.enviar.pidecopia[lang]}</p>
-      <p className="mt-2 text-black text-2xl"> {Content.cuestionario.enviar.precioventa[lang]}
-      </p>
-
-      <div
-        className="mx-24 ml-28 px-24 flex flex-row"
-        style={{
-          position: "fixed",
-          top: "40%",
-          left: "43%",
-          transform: "translate(-50%, -50%)",
-          zIndex: 9999,
-          background: "transparent",
-          padding: "20px",
-          borderRadius: "10px",
-        }}
-      >
-        <div className="flex-1 flex flex-col ml-24  mx-24 px-10  pr-20  ">
-        <div className=" text-left mx-24 px-24 ">
-        <h1 className="text-md mt-10 ">{nombre}</h1>
-            <p className="text-black text-xs mt-2   text-black" style={{ fontSize: '8px' }}>{Content.cuestionario.resultado.tudioses[lang]}</p>
-            <h2 className="text-black  text-md  mb-5   ">{Content.cuestionario.resultado.nombresdioses[lang][midios]}</h2>
-            <div className="text-black w-44">
-              <div className="text-xs mb-10 pr-5" style={{ fontSize: '8px' }}>
-                {Content.cuestionario.resultado.contenidoresultado[lang][midios]}
-              </div>
-            </div>
-          </div>
-        </div>
+    <div
+      className="absolute inset-0 z-10 flex flex-col items-center bg-cover bg-center text-center text-black"
+      style={{ backgroundImage: 'url("/Fondo oscurecido.png")' }}
+    >
+      <h1 className="mt-[5%] text-[44px] uppercase">{Content.cuestionario.enviar.quieresllevarte[lang]}</h1>
+      <div className="mt-8 h-[520px] w-[748px] shadow-xl">
+        <ResultCard name={nombre} god={midios} lang={lang} variant="preview" />
       </div>
-      <div
-        className="mx-24 flex flex-row"
-        style={{
-          position: "fixed",
-          top: "40%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          zIndex: 9999,
-          background: "transparent",
-          padding: "20px",
-          borderRadius: "10px",
-        }}
-      >
-        <div className="flex-1 flex items-center justify-center mr-10 ml-12 mt-10 ">
-          <Image
-            src={imagendios}
-            alt={midios}
-            width={130}
-            height={130}
-            style={{ width: "auto", height: "auto" }}
-            className="px-20"
-          />
-        </div>
-      </div>
-      <div className="flex flex-row text-center justify-center">
-        <button
-          className="mt-11 px-8 py-4 mr-10 text-3xl text-black bg-cyan-700 rounded bg-opacity-40 shadow-lg"
-          onClick={handleSeguirClick}
-          disabled={botonPulsado}
-        >
-          {Content.cuestionario.enviar.confirmaryrecoger[lang]}
-          </button>
-        <button
-          className="mt-11 px-8 py-4 text-3xl text-black bg-green-700  rounded bg-opacity-30  shadow-lg"
-          onClick={handleRestart}
-        >
-          {Content.cuestionario.enviar.comenzardenuevo[lang]}
-        </button>
+      <p className="mt-8 text-[34px] uppercase">{Content.cuestionario.enviar.pidecopia[lang]}</p>
+      <p className="mt-2 text-[26px] uppercase">{Content.cuestionario.enviar.precioventa[lang]}</p>
+      <div className="mt-7 flex gap-12">
+        <button className="result-action" onClick={handleSeguirClick} disabled={botonPulsado}>{Content.cuestionario.enviar.confirmaryrecoger[lang]}</button>
+        <button className="result-action" onClick={() => router.push("/landing")}>{Content.cuestionario.enviar.comenzardenuevo[lang]}</button>
       </div>
     </div>
   );

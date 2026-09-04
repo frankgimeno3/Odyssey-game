@@ -222,10 +222,16 @@ const Nombre: React.FC<NombreProps> = ({ setComponenteActual, setNombre, lang })
             M
           </button>
           <button
-            className="bg-transparent    mt-2 mx-1"
+            type="button"
+            className="inline-flex h-[96px] w-[170px] items-center justify-center bg-transparent align-middle text-[#b3896d] transition-opacity hover:opacity-70"
             onClick={handleDeleteCharacter}
+            aria-label="Delete last character"
           >
-            &#8592;
+            <img
+              src="/icon/backspace-arrow.svg"
+              alt=""
+              className="h-[86px] w-[170px] object-contain"
+            />
           </button>
         </div>
       </div>

@@ -31,7 +31,7 @@ const Relaciones: React.FC<RelacionesProps> = ({
 
   return (
     <div
-      className={`flex flex-col mt-14 pt-14 justify-right ml-24 pl-24 ${
+      className={`question-answers flex flex-col mt-14 pt-14 justify-right ml-24 pl-24 ${
         isVisible
           ? "transition-opacity duration-1000 opacity-100"
           : "  opacity-0"
@@ -42,7 +42,7 @@ const Relaciones: React.FC<RelacionesProps> = ({
           <div className=" ml-24 pl-24">
             <button
               className="w-600  h-200 px-24 py-10   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")' }}
+              style={{ backgroundImage: 'url("/boton.png")' }}
               onClick={() => handleOptionClick("ENAMORADIZO")}
             >
         {Content.cuestionario.relaciones.enamoradizo[lang]}
@@ -52,7 +52,7 @@ const Relaciones: React.FC<RelacionesProps> = ({
           <div className=" ml-24 pl-24">
             <button
               className="w-600  h-200 px-20 py-10   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")' }}
+              style={{ backgroundImage: 'url("/boton.png")' }}
               onClick={() => handleOptionClick("COMPROMETIDO")}
             >
         {Content.cuestionario.relaciones.comprometido[lang]}

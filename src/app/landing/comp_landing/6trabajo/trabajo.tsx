@@ -30,7 +30,7 @@ const Trabajo: React.FC<TrabajoProps> = ({
 
   return (
     <div
-      className={`flex flex-col   justify-right mr-24 pr-24      ${
+      className={`question-answers flex flex-col   justify-right mr-24 pr-24      ${
         isVisible
           ? "transition-opacity duration-1000 opacity-100"
           : "  opacity-0"
@@ -41,7 +41,7 @@ const Trabajo: React.FC<TrabajoProps> = ({
           <div className=" ">
             <button
               className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
+              style={{ backgroundImage: 'url("/boton.png")', width: 700 }}
               onClick={() => handleOptionClick("TRABAJADOR")}
             >
         {Content.cuestionario.trabajo.trabajador[lang]}
@@ -51,8 +51,8 @@ const Trabajo: React.FC<TrabajoProps> = ({
           <div className=" ">
             <button
               className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
-              onClick={() => handleOptionClick("HOLGAZÁN")}
+              style={{ backgroundImage: 'url("/boton.png")', width: 700 }}
+              onClick={() => handleOptionClick("HOLGAZÃN")}
             >
         {Content.cuestionario.trabajo.holgazan[lang]}
         </button>

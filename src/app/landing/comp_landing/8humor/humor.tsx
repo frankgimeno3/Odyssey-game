@@ -26,7 +26,7 @@ const Humor: React.FC<HumorProps> = ({ setComponenteActual, setHumor, lang }) =>
 
   return (
     <div
-      className={`flex flex-col  pt-24 justify-right mr-24 pr-24      ${
+      className={`question-answers flex flex-col  pt-24 justify-right mr-24 pr-24      ${
         isVisible
           ? "transition-opacity duration-1000 opacity-100"
           : "  opacity-0"
@@ -37,7 +37,7 @@ const Humor: React.FC<HumorProps> = ({ setComponenteActual, setHumor, lang }) =>
           <div className=" ">
             <button
               className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
+              style={{ backgroundImage: 'url("/boton.png")', width: 700 }}
               onClick={() => handleOptionClick("BUENHUMOR")}
             >
         {Content.cuestionario.humor.buenhumor[lang]}
@@ -47,7 +47,7 @@ const Humor: React.FC<HumorProps> = ({ setComponenteActual, setHumor, lang }) =>
           <div className=" ">
             <button
               className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
+              style={{ backgroundImage: 'url("/boton.png")', width: 700 }}
               onClick={() => handleOptionClick("MALHUMOR")}
             >
         {Content.cuestionario.humor.malhumor[lang]}

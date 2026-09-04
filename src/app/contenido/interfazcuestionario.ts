@@ -212,6 +212,11 @@ export interface Cuestionario {
         };
     };
     resultado: {
+        titulo: {
+            es: string;
+            en: string;
+            de: string;
+        };
         tudioses: {
             es: string;
             en: string;

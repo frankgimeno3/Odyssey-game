@@ -29,7 +29,7 @@ const Resolutividad: React.FC<ResolutividadProps> = ({
 
   return (
     <div
-      className={`flex flex-col pt-14 justify-right ml-24 pl-24      ${
+      className={`question-answers flex flex-col pt-14 justify-right ml-24 pl-24      ${
         isVisible
           ? "transition-opacity duration-1000 opacity-100"
           : "  opacity-0"
@@ -40,8 +40,8 @@ const Resolutividad: React.FC<ResolutividadProps> = ({
           <div className=" ml-24 pl-24">
             <button
               className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
-              onClick={() => handleOptionClick("CONFRONTACIÓN")}
+              style={{ backgroundImage: 'url("/boton.png")', width: 700 }}
+              onClick={() => handleOptionClick("CONFRONTACIÃ“N")}
             >
         {Content.cuestionario.resolutividad.confrontacion[lang]}
         </button>
@@ -50,8 +50,8 @@ const Resolutividad: React.FC<ResolutividadProps> = ({
           <div className=" ml-24 pl-24">
             <button
               className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
-              style={{ backgroundImage: 'url("/buttonB.png")', width: 700 }}
-              onClick={() => handleOptionClick("NEGOCIACIÓN")}
+              style={{ backgroundImage: 'url("/boton.png")', width: 700 }}
+              onClick={() => handleOptionClick("NEGOCIACIÃ“N")}
             >
         {Content.cuestionario.resolutividad.negociacion[lang]}
         </button>
