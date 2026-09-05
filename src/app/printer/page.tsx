@@ -1,6 +1,6 @@
 "use client";
 
-import { handleVisualizar } from './handleVisualizar'; 
+import { getGodContent } from '../contenido/godContent';
 import React, { FC, useEffect, useRef, useState } from 'react';
 import Whitenav from './Navbar/Whitenav';
 import Navbar from './Navbar/navbar';
@@ -35,7 +35,6 @@ const Printer: FC<PrinterProps> = ({ }) => {
   const [showMoreRows, setShowMoreRows] = useState(false);
   const maxRowsToShow = 10;
   const [navbarVisible, setNavbarVisible] = useState(true);
-  const [contenidoprint, setcontenidoprint] = useState("");
   const [currentOrder, setCurrentOrder] = useState<string>("");
   const [selectedRowData, setSelectedRowData] = useState<File | null>(null);
   const [printRequested, setPrintRequested] = useState(false);
@@ -95,11 +94,8 @@ const Printer: FC<PrinterProps> = ({ }) => {
   };
 
   const handleVisualizarCaller = (file: File) => {
+      if (!getGodContent(file.midios, file.lang)) return;
       setSelectedRowData(file);
-      handleVisualizar({
-          file,
-          setcontenidoprint,
-      });
       setPrintRequested(true);
   };
 
@@ -117,7 +113,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
       });
 
       return () => window.cancelAnimationFrame(frame);
-  }, [contenidoprint, handlePrint, printRequested, selectedRowData]);
+  }, [handlePrint, printRequested, selectedRowData]);
 
   return (
       <div className="flex min-h-screen w-screen bg-gray-100 ">
@@ -178,7 +174,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                           {singnlefile.nombre}
                                       </td>
                                       <td className="border border-gray-300 text-[0.65rem] text-left pl-5">
-                                          {singnlefile.midios}
+                                          {getGodContent(singnlefile.midios, singnlefile.lang)?.name ?? singnlefile.midios}
                                       </td>
                                       <td className="border border-gray-300 text-[0.65rem] text-left pl-5">
                                           {singnlefile.lang}
@@ -186,6 +182,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                                       <td className="border border-gray-300 text-center">
                                           <button
                                               className="rounded bg-gray-100 shadow px-5 py-1 text-xs text-[0.60rem] hover:bg-gray-50 btn-visualizar"
+                                              disabled={!getGodContent(singnlefile.midios, singnlefile.lang)}
                                               onClick={() => handleVisualizarCaller(singnlefile)}
                                           >
                                               {typedContent.visualizar[printerLang]}
@@ -217,7 +214,6 @@ const Printer: FC<PrinterProps> = ({ }) => {
                       nombre={selectedRowData.nombre}
                       tuDios={selectedRowData.midios}
                       tulang={selectedRowData.lang}
-                      contenidoprint={contenidoprint}
                   />
               )}
           </div>

@@ -1,9 +1,7 @@
 "use client";
 
 import { Dispatch, SetStateAction } from "react";
-import slogans from "../contenido/slogans.json";
-import sloganseng from "../contenido/sloganseng.json";
-import slogansde from "../contenido/slogansde.json";
+import { getGodContent } from "../contenido/godContent";
 import { Dioses, Language } from "../contenido/interfaces";
 
 interface StoredResult {
@@ -16,10 +14,6 @@ interface HandleVisualizarProps {
   setcontenidoprint: Dispatch<SetStateAction<string>>;
 }
 
-const slogansByLanguage = { es: slogans, en: sloganseng, de: slogansde };
-
 export const handleVisualizar = ({ file, setcontenidoprint }: HandleVisualizarProps) => {
-  if (!file.midios) return;
-
-  setcontenidoprint(slogansByLanguage[file.lang][file.midios]);
+  setcontenidoprint(getGodContent(file.midios, file.lang)?.description ?? "");
 };

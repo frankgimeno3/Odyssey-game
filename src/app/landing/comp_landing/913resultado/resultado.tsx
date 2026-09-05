@@ -30,8 +30,20 @@ const Resultado: React.FC<ResultadoProps> = ({
     <animated.div className="absolute inset-0 z-10" style={springAnimation}>
       <ResultCard name={nombre} god={tuDios} lang={lang} />
       <div className="result-actions absolute bottom-[8.5%] left-0 z-30 w-full">
-        <button className="result-action" onClick={handlePrint}>{Content.cuestionario.resultado.imprimir[lang]}</button>
-        <button className="result-action" onClick={() => router.push("/landing")}>{Content.cuestionario.resultado.sinimprimir[lang]}</button>
+        <button
+          className="result-action"
+          style={{ left: "26.5%" }}
+          onClick={handlePrint}
+        >
+          {Content.cuestionario.resultado.imprimir[lang]}
+        </button>
+        <button
+          className="result-action"
+          style={{ right: "20%", minWidth: 440 }}
+          onClick={() => router.push("/landing")}
+        >
+          {Content.cuestionario.resultado.sinimprimir[lang]}
+        </button>
       </div>
     </animated.div>
   );

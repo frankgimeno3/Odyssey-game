@@ -188,6 +188,15 @@ button[style*="/boton.png"] {
   line-height: 1;
 }
 
+.question-answers--tall button,
+.question-answers .question-answer--tall {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 212px !important;
+  text-align: center;
+}
+
 .result-card {
   container-type: inline-size;
 }
@@ -197,12 +206,13 @@ button[style*="/boton.png"] {
   left: 22%;
   width: 56%;
   color: #194899;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Cinzel', serif;
   font-size: 4.4cqw;
-  font-weight: 800;
+  font-optical-sizing: auto;
+  font-weight: 700;
   line-height: 1;
   text-align: center;
-  text-shadow: 0 4px 7px rgb(29 38 52 / 35%);
+  text-shadow: 0 2px 4px rgb(29 38 52 / 28%);
 }
 
 .result-name {
@@ -254,15 +264,7 @@ button[style*="/boton.png"] {
 .result-actions .result-action {
   position: absolute;
   bottom: 0;
-}
-
-.result-actions .result-action:first-child {
-  left: 26.5%;
-}
-
-.result-actions .result-action:last-child {
-  left: 55%;
-  min-width: 440px;
+  font-size: 27px;
 }
 
 .result-action {

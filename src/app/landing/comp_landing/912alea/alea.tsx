@@ -12,7 +12,7 @@ const Alea: React.FC<AleaProps> = ({ setComponenteActual, lang }) => {
     <div className="flex flex-col text-center justify-center">
        <h2 className="text-[110px]"> {Content.cuestionario.alea.aleaiactaest[lang]}
        </h2>
-      <h2 className="mb-20 text-[110px]"> {Content.cuestionario.alea.lasuerteesta[lang]}
+      <h2 className={`mb-20 ${lang === "en" ? "text-[110px]" : "mx-auto max-w-[70%] text-[86px]"}`}> {Content.cuestionario.alea.lasuerteesta[lang]}
       </h2>
 
       <div className="mx-20">

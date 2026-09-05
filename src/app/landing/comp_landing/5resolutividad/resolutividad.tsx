@@ -39,7 +39,7 @@ const Resolutividad: React.FC<ResolutividadProps> = ({
         <div className="pl-24 flex flex-col mx-24 mt-24 ">
           <div className=" ml-24 pl-24">
             <button
-              className="w-600 text-5xl h-200 px-22 py-8   ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl"
+              className={`w-600 text-5xl h-200 px-22 py-8 ml-24 mt-24 mx-24 bg-cover bg-center rounded-3xl ${lang === "de" ? "question-answer--tall" : ""}`}
               style={{ backgroundImage: 'url("/boton.png")', width: 700 }}
               onClick={() => handleOptionClick("CONFRONTACIÃ“N")}
             >

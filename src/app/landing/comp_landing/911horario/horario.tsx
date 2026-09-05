@@ -31,7 +31,7 @@ const Horario: React.FC<HorarioProps> = ({
 
   return (
     <div
-      className={`question-answers flex flex-col  justify-right ml-14 pl-14      ${isVisible
+      className={`question-answers ${lang === "de" ? "question-answers--tall" : ""} flex flex-col  justify-right ml-14 pl-14      ${isVisible
           ? "transition-opacity duration-1000 opacity-100"
           : "  opacity-0"
         }`}

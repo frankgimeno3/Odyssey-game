@@ -2,14 +2,7 @@
 
 import React from "react";
 import { Dioses, Language } from "../../contenido/interfaces";
-
-type PrintableGod = Exclude<Dioses, "">;
-
-const godNames: Record<Language, Record<PrintableGod, string>> = {
-  en: { Demeter: "DEMETER", Artemisa: "ARTEMIS", Apolo: "APOLLO", Zeus: "ZEUS", Hera: "HERA", Ares: "ARES", Hermes: "HERMES", Atena: "ATHENA", Poseidon: "POSEIDON", Afrodita: "APHRODITE", Hestia: "HESTIA", Hefesto: "HEPHAESTUS" },
-  es: { Demeter: "DEMÉTER", Artemisa: "ARTEMISA", Apolo: "APOLO", Zeus: "ZEUS", Hera: "HERA", Ares: "ARES", Hermes: "HERMES", Atena: "ATENEA", Poseidon: "POSEIDÓN", Afrodita: "AFRODITA", Hestia: "HESTIA", Hefesto: "HEFESTO" },
-  de: { Demeter: "DEMETER", Artemisa: "ARTEMIS", Apolo: "APOLLON", Zeus: "ZEUS", Hera: "HERA", Ares: "ARES", Hermes: "HERMES", Atena: "ATHENE", Poseidon: "POSEIDON", Afrodita: "APHRODITE", Hestia: "HESTIA", Hefesto: "HEPHAISTOS" },
-};
+import { getGodContent } from "../../contenido/godContent";
 
 const guideText: Record<Language, string> = {
   es: "TU DIVINIDAD REGENTE ES",
@@ -21,12 +14,12 @@ interface ComponentToPrintProps {
   nombre: string;
   tuDios: Dioses;
   tulang: Language;
-  contenidoprint: string;
 }
 
 const ComponentToPrint = React.forwardRef<HTMLDivElement, ComponentToPrintProps>(
-  function ComponentToPrint({ nombre, tuDios, tulang, contenidoprint }, ref) {
-    if (!tuDios) return null;
+  function ComponentToPrint({ nombre, tuDios, tulang }, ref) {
+    const god = getGodContent(tuDios, tulang);
+    if (!god) return null;
 
     return (
       <div ref={ref} className="print-sheet font-cinzel">
@@ -37,10 +30,10 @@ const ComponentToPrint = React.forwardRef<HTMLDivElement, ComponentToPrintProps>
           <p>{guideText[tulang]}</p>
         </section>
         <section className="print-god-copy">
-          <h2>{godNames[tulang][tuDios]}</h2>
-          <p>{contenidoprint}</p>
+          <h2>{god.name}</h2>
+          <p>{god.description}</p>
         </section>
-        <img className="print-god-image" src={`/slides/DEUS/${tuDios}.png`} alt={godNames[tulang][tuDios]} />
+        <img className="print-god-image" src={god.image} alt={god.name} />
       </div>
     );
   },

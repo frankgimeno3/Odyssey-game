@@ -25,7 +25,7 @@ const Juicio: React.FC<JuicioProps> = ({ setComponenteActual, setJuicio, lang })
   };
   return (
     <div
-      className={`question-answers flex flex-col mt-24 justify-right mr-24 pr-24      ${
+      className={`question-answers ${lang === "de" ? "question-answers--tall" : ""} flex flex-col mt-24 justify-right mr-24 pr-24      ${
         isVisible
           ? "transition-opacity duration-1000 opacity-100"
           : "  opacity-0"

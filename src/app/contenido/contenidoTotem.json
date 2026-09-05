@@ -85,12 +85,12 @@
         },
         "relaciones": {
             "enamoradizo": {
-                "es": "ENAMORADIZO",
+                "es": "ENAMORADIZO/A",
                 "en": "PASSIONATE",
                 "de": "POLYAMOR"
             },
             "comprometido": {
-                "es": "COMPROMETIDO",
+                "es": "COMPROMETIDO/A",
                 "en": "COMMITTED",
                 "de": "MONOGAM"
             }
@@ -121,12 +121,12 @@
         },
         "trabajo": {
             "trabajador": {
-                "es": "TRABAJADORA",
+                "es": "TRABAJADOR/A",
                 "en": "HARD WORKER",
                 "de": "FLEISSIG"
             },
             "holgazan": {
-                "es": "PEREZOSA",
+                "es": "PEREZOSO/A",
                 "en": "LAZY PERSON",
                 "de": "FAUL"
             }
@@ -150,14 +150,14 @@
                 "de": "GLÜCKLICH"
             },
             "malhumor": {
-                "es": "MALHUMORADO",
+                "es": "MALHUMORADO/A",
                 "en": "MOODY",
                 "de": "LAUNISCH"
             }
         },
         "creatividad": {
             "creativo": {
-                "es": "CREATIVA",
+                "es": "CREATIVO/A",
                 "en": "CREATIVE",
                 "de": "KREATIV"
             },
@@ -181,12 +181,12 @@
         },
         "horario": {
             "diurno": {
-                "es": "MADRUGADORA",
+                "es": "MADRUGADOR/A",
                 "en": "EARLY BIRD",
                 "de": "EIN MORGENMENSCH"
             },
             "nocturno": {
-                "es": "NOCTURNA",
+                "es": "NOCTURNO/A",
                 "en": "NIGHT OWL",
                 "de": "EIN NACHTMENSCH"
             }
@@ -264,12 +264,12 @@
                     "": "",
                     "Demeter": "GÖTTIN DES ACKERBAUS, DER ERNTE UND DER FRUCHTBARKEIT DER ERDE.",
                     "Artemisa": "GÖTTIN DER JAGD, DER WILDEN NATUR UND DES MONDES.",
-                    "Apolo": "GOTT DER SONNE, DER MUSIK, DER DICHTKUNST, DER PROPHEZEIUNG UND DER HEILKUNDE.",
+                    "Apolo": "GOTT DER SONNE, DER MUSIK, DER POESIE, DER PROPHEZEIUNG UND DER HEILUNG.",
                     "Zeus": "GOTT DER GÖTTER, HERR DES DONNERS, BESCHÜTZER DER GESETZE UND DER GERECHTIGKEIT.",
                     "Hera": "KÖNIGIN DER GÖTTER, BESCHÜTZERIN DER EHE, DER FAMILIE UND DER FRAUEN.",
                     "Ares": "GOTT DES KRIEGES, DER BRUTALEN KRAFT UND DES MUTES IM KAMPF.",
-                    "Hermes": "GÖTTERBOTE, BESCHÜTZER DER REISENDEN, DES HANDELS UND DER LIST.",
-                    "Atena": "GÖTTIN DER WEISHEIT, DER KRIEGSSTRATEGIE UND DES HANDWERKS.",
+                    "Hermes": "BOTENGOTT, WEGWEISER DER REISENDEN, DES HANDELS UND DER LIST.",
+                    "Atena": "GÖTTIN DER WEISHEIT, DER MILITÄRSTRATEGIE UND DES HANDWERKS.",
                     "Poseidon": "HERR DER MEERE, DER OZEANE, DER ERDBEBEN UND DER PFERDE.",
                     "Afrodita": "GÖTTIN DER LIEBE, DER SCHÖNHEIT, DER LEIDENSCHAFT UND DES VERLANGENS.",
                     "Hestia": "GÖTTIN DES HERDES, DES HEILIGEN FEUERS UND DER FAMILIÄREN HARMONIE.",

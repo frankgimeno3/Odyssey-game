@@ -26,7 +26,7 @@ const Lugar: React.FC<LugarProps> = ({ setComponenteActual, setLugar, lang }) =>
 
   return (
     <div
-      className={`question-answers flex flex-col   justify-right mr-24 pr-24      ${
+      className={`question-answers ${lang === "de" ? "question-answers--tall" : ""} flex flex-col   justify-right mr-24 pr-24      ${
         isVisible
           ? "transition-opacity duration-1000 opacity-100"
           : "  opacity-0"
