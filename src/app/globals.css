@@ -188,15 +188,6 @@ button[style*="/boton.png"] {
   line-height: 1;
 }
 
-.question-answers--tall button,
-.question-answers .question-answer--tall {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 212px !important;
-  text-align: center;
-}
-
 .result-card {
   container-type: inline-size;
 }
@@ -264,7 +255,15 @@ button[style*="/boton.png"] {
 .result-actions .result-action {
   position: absolute;
   bottom: 0;
-  font-size: 27px;
+}
+
+.result-actions .result-action:first-child {
+  left: 26.5%;
+}
+
+.result-actions .result-action:last-child {
+  left: 75%;
+  min-width: 440px;
 }
 
 .result-action {

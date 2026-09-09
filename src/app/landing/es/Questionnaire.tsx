@@ -5,7 +5,6 @@ import Image from "next/image";
 import Restartbutton from "../../components/RestartButton";
 import RenderComponenteActual from "../renderComponenteActual"; // AsegÃƒÂºrate de que la ruta sea correcta
 import { Dioses, Language } from "@/app/contenido/interfaces";
-import InactivityRestart from "../comp_landing/InactivityRestart";
 import QuestionPrompt from "../comp_landing/QuestionPrompt";
 import useStageTransition from "../useStageTransition";
 import { getRouteFromStage } from "../stageRoutes";
@@ -52,11 +51,11 @@ export const SpanishQuestionnaire = ({ initialStage = "nombre" }: { initialStage
   const [horario, setHorario] = useState("");
   const [midios, setmidios] = useState<Dioses>(initialStage === "enviar" ? "Apolo" : "");
   const [fondo, setFondo] = useState(`url("/fondo2.png")`);
-  const [fadeVisible, setFadeVisible] = useState(initialStage === "nombre");
+  const [fadeVisible, setFadeVisible] = useState(false);
   const [entryContentVisible, setEntryContentVisible] = useState(false);
 
   useEffect(() => {
-    const contentTimer = window.setTimeout(() => setEntryContentVisible(true), initialStage === "nombre" ? 50 : 650);
+    const contentTimer = window.setTimeout(() => setEntryContentVisible(true), 650);
     return () => window.clearTimeout(contentTimer);
   }, []);
 
@@ -66,10 +65,6 @@ export const SpanishQuestionnaire = ({ initialStage = "nombre" }: { initialStage
   }, [componenteactual]);
 
   useEffect(() => {
-    if (fondo === 'url("/fondo2.png")') {
-      setFadeVisible(true);
-      return;
-    }
     setFadeVisible(false);
     const fadeTimeout = setTimeout(() => {
       setFadeVisible(true);
@@ -160,9 +155,7 @@ export const SpanishQuestionnaire = ({ initialStage = "nombre" }: { initialStage
     <div
       className="flex flex-col h-screen mx-auto"
       style={{
-        backgroundImage: componenteactual === "nombre"
-          ? `url("/fondo2.png")`
-          : componenteactual === "alea"
+        backgroundImage: componenteactual === "alea"
           ? `url("/fondo1.png")`
           : ["conflicto", "relaciones", "estrategia", "resolutividad", "trabajo", "lugar", "humor", "creatividad", "juicio", "horario"].includes(componenteactual)
           ? `url("/Fondo oscurecido.png")`
@@ -171,7 +164,6 @@ export const SpanishQuestionnaire = ({ initialStage = "nombre" }: { initialStage
         backgroundPosition: "center",
       }}
     >
-      <InactivityRestart lang={lang} />
       <div
         className="relative h-screen flex flex-col justify-center text-center"
       >
@@ -202,9 +194,7 @@ export const SpanishQuestionnaire = ({ initialStage = "nombre" }: { initialStage
             </FadeInOut2>
 
             <div className="absolute top-10 right-10 m-4">
-              <FadeInOut2 visible={entryContentVisible}>
-                <Restartbutton />
-              </FadeInOut2>
+              <Restartbutton />
             </div>
 
             <FadeInOut2 visible={entryContentVisible && (phase === "idle" || phase === "in")}>

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
-  if (request.cookies.get("odyssey-authenticated")?.value !== "true") {
+  if (request.nextUrl.pathname !== "/" && request.cookies.get("odyssey-authenticated")?.value !== "session") {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
@@ -9,5 +9,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/landing/:path*", "/printer/:path*"],
+  matcher: ["/((?!_next/|.*\\.(?:png|jpg|jpeg|gif|svg|ico|webp|woff2?)$).*)"],
 };

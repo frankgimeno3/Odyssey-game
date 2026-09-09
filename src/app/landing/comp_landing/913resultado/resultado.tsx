@@ -38,8 +38,8 @@ const Resultado: React.FC<ResultadoProps> = ({
           {Content.cuestionario.resultado.imprimir[lang]}
         </button>
         <button
-          className="result-action"
-          style={{ right: "20%", minWidth: 440 }}
+          className="result-action mr-12"
+          style={{minWidth: 440 }}
           onClick={() => router.push("/landing")}
         >
           {Content.cuestionario.resultado.sinimprimir[lang]}

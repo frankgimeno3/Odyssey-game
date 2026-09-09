@@ -4,7 +4,8 @@ import { getGodContent } from '../contenido/godContent';
 import React, { FC, useEffect, useRef, useState } from 'react';
 import Whitenav from './Navbar/Whitenav';
 import Navbar from './Navbar/navbar';
-import { useRouter } from 'next/navigation';
+import PrinterFilters from './PrinterFilters';
+import { emptyFilters, matchesFilters } from './filters';
 import { useReactToPrint } from 'react-to-print';  
 // import slogans from "../contenido/slogans.json"
 // import sloganseng from "../contenido/sloganseng.json"
@@ -31,11 +32,11 @@ const Printer: FC<PrinterProps> = ({ }) => {
   const [showAlert, setShowAlert] = useState(false);
   const [selectedFileId, setSelectedFileId] = useState("");
   const componentRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
   const [showMoreRows, setShowMoreRows] = useState(false);
   const maxRowsToShow = 10;
   const [navbarVisible, setNavbarVisible] = useState(true);
-  const [currentOrder, setCurrentOrder] = useState<string>("");
+  const [currentOrder, setCurrentOrder] = useState<{ column: 'updatedAt' | 'nombre' | 'midios' | 'lang'; down: boolean }>({ column: 'updatedAt', down: true });
+  const [filters, setFilters] = useState(emptyFilters);
   const [selectedRowData, setSelectedRowData] = useState<File | null>(null);
   const [printRequested, setPrintRequested] = useState(false);
 
@@ -73,24 +74,26 @@ const Printer: FC<PrinterProps> = ({ }) => {
       }
   };
 
-  const handleHeaderClick = (header: string) => {
-      const newOrder = header === currentOrder ? `-${header}` : header;
-      const sortedTableData = files.slice().sort((a, b) => {
-          if (header === "updatedAt") {
-              return (
-                  new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
-              );
-          } else {
-              return (a as any)[header].localeCompare((b as any)[header]);
-          }
-      });
+  const visibleFiles = files.filter(file => matchesFilters(file, filters)).sort((a, b) => {
+      const column = currentOrder.column;
+      const comparison = column === 'updatedAt'
+          ? new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+          : column === 'midios'
+          ? (getGodContent(a.midios, a.lang)?.name ?? a.midios).localeCompare(getGodContent(b.midios, b.lang)?.name ?? b.midios)
+          : a[column].localeCompare(b[column], undefined, { sensitivity: 'base' });
+      return currentOrder.down ? comparison : -comparison;
+  });
 
-      if (newOrder.startsWith("-")) {
-          sortedTableData.reverse();
-      }
-
-      setFiles(sortedTableData);
-      setCurrentOrder(newOrder);
+  const sortHeader = (column: typeof currentOrder.column, label: string) => {
+      const active = currentOrder.column === column;
+      const descending = column === 'updatedAt' ? currentOrder.down : !currentOrder.down;
+      return <th key={column} className="border border-gray-300" aria-sort={active ? descending ? 'descending' : 'ascending' : 'none'}>
+          <button type="button" className={`flex w-full items-center justify-between gap-3 py-1.5 pl-5 pr-3 text-left ${active ? 'font-bold' : 'font-medium'}`}
+              onClick={() => setCurrentOrder({ column, down: active ? !currentOrder.down : true })}>
+              {label}
+              {active && <svg aria-hidden="true" viewBox="0 0 10 8" className={`h-2 w-2.5 shrink-0 text-gray-700 ${currentOrder.down ? '' : 'rotate-180'}`} fill="currentColor"><path d="M0 0h10L5 8z" /></svg>}
+          </button>
+      </th>;
   };
 
   const handleVisualizarCaller = (file: File) => {
@@ -116,42 +119,23 @@ const Printer: FC<PrinterProps> = ({ }) => {
   }, [handlePrint, printRequested, selectedRowData]);
 
   return (
-      <div className="flex min-h-screen w-screen bg-gray-100 ">
+      <div className="flex min-h-screen w-full bg-gray-100">
           {navbarVisible && <Navbar printerLang={printerLang} setPrinterLang={setPrinterLang} />}
-          <div className="flex flex-col w-screen  ">
+          <div className="flex min-w-0 flex-1 flex-col">
                   <Whitenav setNavbarVisible={setNavbarVisible} printerLang={printerLang}/>
               <div className="p-5">
                   <div className="mb-4 flex flex-row justify-between">
                       <h2 className="mb-4 ml-3 text-lg">{typedContent.subtitulo[printerLang]}</h2>
                   </div>
-                  <div className="mr-20 bg-white p-5 ">
-                      <table className="w-full border border-gray-300 bg-white text-left text-xs text-slate-800">
+                  <PrinterFilters value={filters} onChange={setFilters} language={printerLang} />
+                  <div className="overflow-x-auto bg-white p-5">
+                      <table className="w-full min-w-[600px] border border-gray-300 bg-white text-left text-xs text-slate-800">
                           <thead>
                               <tr className="border border-gray-300">
-                                  <th
-                                      className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
-                                      onClick={() => handleHeaderClick("updatedAt")}
-                                  >
-                                          {typedContent.hora[printerLang]}
-                                  </th>
-                                  <th
-                                      className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
-                                      onClick={() => handleHeaderClick("nombre")}
-                                  >
-                                          {typedContent.nombre[printerLang]}
-                                  </th>
-                                  <th
-                                      className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
-                                      onClick={() => handleHeaderClick("midios")}
-                                  >
-                                          {typedContent.dios[printerLang]}
-                                  </th>
-                                  <th
-                                      className="py-1.5 pl-5 font-medium border border-gray-300 cursor-pointer"
-                                      onClick={() => handleHeaderClick("lang")}
-                                  >
-                                          {typedContent.idioma[printerLang]}
-                                  </th>
+                                  {sortHeader('updatedAt', typedContent.hora[printerLang])}
+                                  {sortHeader('nombre', typedContent.nombre[printerLang])}
+                                  {sortHeader('midios', typedContent.dios[printerLang])}
+                                  {sortHeader('lang', typedContent.idioma[printerLang])}
                                   <th className="py-1.5 text-center font-medium border border-gray-300">
                                   {typedContent.archivo[printerLang]}
                                   </th>
@@ -161,7 +145,8 @@ const Printer: FC<PrinterProps> = ({ }) => {
                               </tr>
                           </thead>
                           <tbody>
-                              {files.map((singnlefile, index) => (
+                              {visibleFiles.length === 0 && <tr><td colSpan={6} className="p-5 text-center text-gray-500">No results</td></tr>}
+                              {visibleFiles.map((singnlefile, index) => (
                                   <tr
                                       key={singnlefile.id || `file-${index}`}
                                       className="border border-gray-300 font-light "

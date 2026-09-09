@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { clearSession } from '../../components/AuthGuard';
 
 interface NavbarProps {
   printerLang: any;
@@ -12,7 +13,7 @@ const Navbar: FC<NavbarProps> = ({ printerLang, setPrinterLang }) => {
   }
 
   return (
-    <nav className="flex flex-col bg-slate-800  items-start text-start py-2 md:text-xs xl:text-base">
+    <nav className="flex min-h-screen flex-col bg-slate-800 items-start text-start py-2 md:text-xs xl:text-base">
       {printerLang == "en" && <h2
         className="flex flex-wrap bg-opacity-25 text-white pt-1 pr-8 pl-4 mr-5 text-md mt-3 font-semibold  "
       >
@@ -69,6 +70,18 @@ const Navbar: FC<NavbarProps> = ({ printerLang, setPrinterLang }) => {
           <button className="flex text-white text-xs  pl-8 py-2   bg-gray-50 w-full justify-left bg-opacity-30">ES</button>
         </div>}
 
+      <div className="mt-auto w-full px-4 pt-8 pb-4">
+        <button
+          type="button"
+          onClick={() => {
+            clearSession();
+            window.location.replace('/');
+          }}
+          className="w-full rounded bg-blue-500 px-4 py-2 text-sm text-white hover:bg-blue-600"
+        >
+          {printerLang === 'es' ? 'Cerrar sesión' : printerLang === 'de' ? 'Ausloggen' : 'Log out'}
+        </button>
+      </div>
     </nav>
   );
 };

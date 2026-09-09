@@ -18,9 +18,10 @@ const Home = () => {
       return;
     }
 
-    window.localStorage.setItem('odyssey-authenticated', 'true');
-    document.cookie = 'odyssey-authenticated=true; path=/; max-age=86400; samesite=lax';
-    router.push('/landing');
+    window.localStorage.removeItem('odyssey-authenticated');
+    window.sessionStorage.setItem('odyssey-authenticated', 'true');
+    document.cookie = 'odyssey-authenticated=session; path=/; samesite=lax';
+    router.replace('/landing');
   };
 
   const router = useRouter();
