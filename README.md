@@ -34,3 +34,24 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Resultados compartidos con Pompeia
+
+Odyssey guarda, consulta en tiempo real y borra registros en la colección `documents`
+del proyecto Firestore `pompeiaquizz`, la misma colección que utiliza pompeiagame.
+Los registros nuevos incluyen `nombre`, `midios`, `lang`, `updatedAt` (ISO) e `id`.
+El identificador se guarda en una sola escritura y se conserva al reintentar.
+
+La configuración local está en `.env.local` (ignorado por Git). `.env.example`
+indica las seis variables `NEXT_PUBLIC_FIREBASE_*` necesarias. En Vercel deben
+configurarse con los mismos valores de la aplicación web Firebase de Pompeia
+antes de construir y desplegar de nuevo; `.env.local` no se sube con Git.
+
+El printer recibe altas y bajas sin recargar. Un fallo de lectura muestra un error,
+y un fallo al guardar no avanza a la confirmación de recogida. El borrado afecta a
+la colección compartida y, por tanto, también a los registros visibles en Pompeia.
+Los resultados antiguos de `localStorage` no se importan automáticamente.
+
+Se utilizan los permisos existentes de Firestore; el acceso local del juego no
+crea una sesión de Firebase Authentication. No se han modificado las reglas de
+la base de datos.

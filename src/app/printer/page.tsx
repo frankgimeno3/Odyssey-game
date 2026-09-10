@@ -1,5 +1,7 @@
 "use client";
 
+import { collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
+import { db } from '../firebase';
 import { getGodContent } from '../contenido/godContent';
 import React, { FC, useEffect, useRef, useState } from 'react';
 import Whitenav from './Navbar/Whitenav';
@@ -28,6 +30,8 @@ export interface File {
 const Printer: FC<PrinterProps> = ({ }) => {
     
   const [printerLang, setPrinterLang] = useState<'en' | 'es' | 'de'>('en');
+  const [loading, setLoading] = useState(true);
+  const [dataError, setDataError] = useState<'read' | 'delete' | null>(null);
   const [files, setFiles] = useState<File[]>([]);
   const [showAlert, setShowAlert] = useState(false);
   const [selectedFileId, setSelectedFileId] = useState("");
@@ -42,10 +46,15 @@ const Printer: FC<PrinterProps> = ({ }) => {
 
   const typedContent: PrinterContent = Content as PrinterContent;
 
-  useEffect(() => {
-      const storedFiles = window.localStorage.getItem('odyssey-documents');
-      setFiles(storedFiles ? JSON.parse(storedFiles) as File[] : []);
-  }, []);
+  useEffect(() => onSnapshot(collection(db, 'documents'), (snapshot) => {
+      setFiles(snapshot.docs.map((document) => ({ ...document.data(), id: document.id }) as File));
+      setLoading(false);
+      setDataError(null);
+  }, (error) => {
+      console.error('Error loading results:', error);
+      setLoading(false);
+      setDataError('read');
+  }), []);
 
   const showDeleteAlert = (id: string) => {
       setSelectedFileId(id);
@@ -59,17 +68,17 @@ const Printer: FC<PrinterProps> = ({ }) => {
   const confirmDelete = () => {
       setShowAlert(false);
       handleDelete(selectedFileId);
-      setFiles((prevFiles) => prevFiles.filter(file => file.id !== selectedFileId));
+
   };
 
   const handleDelete = async (id: string | null) => {
       if (id != undefined) {
           try {
-              const remainingFiles = files.filter((file) => file.id !== id);
-              window.localStorage.setItem('odyssey-documents', JSON.stringify(remainingFiles));
-              setFiles(remainingFiles);
+              await deleteDoc(doc(db, 'documents', id));
+              setDataError(null);
           } catch (error) {
               console.error("Error eliminando el documento: ", error);
+              setDataError('delete');
           }
       }
   };
@@ -127,6 +136,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
                   <div className="mb-4 flex flex-row justify-between">
                       <h2 className="mb-4 ml-3 text-lg">{typedContent.subtitulo[printerLang]}</h2>
                   </div>
+                  {dataError && <p role="alert" className="mb-4 text-red-700">{dataError === 'read' ? 'No se pueden cargar los resultados / Could not load results. Recarga la página / Reload the page.' : 'No se ha podido borrar / Could not delete. Inténtalo de nuevo / Try again.'}</p>}
                   <PrinterFilters value={filters} onChange={setFilters} language={printerLang} />
                   <div className="overflow-x-auto bg-white p-5">
                       <table className="w-full min-w-[600px] border border-gray-300 bg-white text-left text-xs text-slate-800">
@@ -145,7 +155,8 @@ const Printer: FC<PrinterProps> = ({ }) => {
                               </tr>
                           </thead>
                           <tbody>
-                              {visibleFiles.length === 0 && <tr><td colSpan={6} className="p-5 text-center text-gray-500">No results</td></tr>}
+                              {loading && <tr><td colSpan={6} className="p-5 text-center">Loading...</td></tr>}
+                              {!loading && !dataError && visibleFiles.length === 0 && <tr><td colSpan={6} className="p-5 text-center text-gray-500">No results</td></tr>}
                               {visibleFiles.map((singnlefile, index) => (
                                   <tr
                                       key={singnlefile.id || `file-${index}`}

@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",    
+    "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "firebase": "^10.12.5",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
