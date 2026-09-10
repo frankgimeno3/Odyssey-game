@@ -1,5 +1,5 @@
 import { collection, doc, setDoc } from "firebase/firestore";
-import { db } from "@/app/firebase";
+import { db, logFirestore, logFirestoreError } from "@/app/firebase";
 import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Content from "../../../contenido/contenidoTotem.json";
@@ -19,17 +19,24 @@ const Enviar: React.FC<EnviarProps> = ({ setComponenteActual, nombre, midios, la
     saving.current = true;
     setSaveError(false);
     setBotonPulsado(true);
+    logFirestore('save-start');
+    const pendingWarning = window.setTimeout(() => logFirestore('save-pending', {
+      elapsedSeconds: 15, hint: 'Still waiting for server acknowledgement. Check connection and Network; do not assume the result was saved.',
+    }), 15000);
     try {
       documentRef.current ??= doc(collection(db, "documents"));
       await setDoc(documentRef.current, {
         nombre, midios, lang, updatedAt: new Date().toISOString(), id: documentRef.current.id,
       });
+      logFirestore('save-success', { documentId: documentRef.current.id });
       setComponenteActual("yapuedes");
     } catch (error) {
-      console.error("Error saving result:", error);
+      logFirestoreError('save-failed', error);
       setSaveError(true);
       setBotonPulsado(false);
       saving.current = false;
+    } finally {
+      window.clearTimeout(pendingWarning);
     }
   };
 

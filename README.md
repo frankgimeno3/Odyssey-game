@@ -43,7 +43,7 @@ Los registros nuevos incluyen `nombre`, `midios`, `lang`, `updatedAt` (ISO) e `i
 El identificador se guarda en una sola escritura y se conserva al reintentar.
 
 La configuración local está en `.env.local` (ignorado por Git). `.env.example`
-indica las seis variables `NEXT_PUBLIC_FIREBASE_*` necesarias. En Vercel deben
+indica las seis variables `REACT_APP_*` necesarias. En Vercel deben
 configurarse con los mismos valores de la aplicación web Firebase de Pompeia
 antes de construir y desplegar de nuevo; `.env.local` no se sube con Git.
 
@@ -55,3 +55,27 @@ Los resultados antiguos de `localStorage` no se importan automáticamente.
 Se utilizan los permisos existentes de Firestore; el acceso local del juego no
 crea una sesión de Firebase Authentication. No se han modificado las reglas de
 la base de datos.
+
+### Diagnóstico en Vercel
+
+Se conservan los nombres `REACT_APP_*` usados en Vercel. `next.config.mjs`
+expone al navegador solamente las seis variables de Firebase indicadas en
+`.env.example`. `SECRET` no se expone ni se utiliza para esta conexión.
+Después de cambiar los valores hay que desplegar de nuevo.
+Una configuración incompleta genera un error explícito al inicializar Firebase,
+también durante la compilación si se evalúa ese módulo.
+
+Filtrar la consola del navegador por `[Odyssey]`:
+
+- `[Firebase][configuration]`: campos ausentes e instrucciones para corregirlos.
+- `[Firestore]`: proyecto, colección, operación, ruta y estado de conexión;
+  los errores incluyen código y mensaje. `save-success` confirma la escritura.
+  `save-pending` indica que pasaron 15 segundos sin confirmación del servidor.
+- `[HTTP][failed]`: estado y URL sin parámetros cuando Resource Timing permite
+  observar el estado HTTP. No todos los navegadores o servidores externos lo exponen.
+- `[Resource][load-failed]`: fallos de carga de elementos observados después del
+  montaje; consultar Network para el estado y la URL completa.
+
+No se registran los nombres de participantes, resultados ni valores de claves.
+Un 404 de una imagen no demuestra que Firestore haya fallado. Si no llega a cargar
+el JavaScript de la aplicación, estos diagnósticos no pueden ejecutarse.

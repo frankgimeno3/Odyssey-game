@@ -1,7 +1,7 @@
 "use client";
 
 import { collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db, logFirestore, logFirestoreError } from '../firebase';
 import { getGodContent } from '../contenido/godContent';
 import React, { FC, useEffect, useRef, useState } from 'react';
 import Whitenav from './Navbar/Whitenav';
@@ -46,15 +46,19 @@ const Printer: FC<PrinterProps> = ({ }) => {
 
   const typedContent: PrinterContent = Content as PrinterContent;
 
-  useEffect(() => onSnapshot(collection(db, 'documents'), (snapshot) => {
+  useEffect(() => {
+    logFirestore('listen-start');
+    return onSnapshot(collection(db, 'documents'), (snapshot) => {
+      logFirestore('listen-snapshot', { count: snapshot.size, fromCache: snapshot.metadata.fromCache, hasPendingWrites: snapshot.metadata.hasPendingWrites });
       setFiles(snapshot.docs.map((document) => ({ ...document.data(), id: document.id }) as File));
       setLoading(false);
       setDataError(null);
   }, (error) => {
-      console.error('Error loading results:', error);
+      logFirestoreError('listen-failed', error);
       setLoading(false);
       setDataError('read');
-  }), []);
+    });
+  }, []);
 
   const showDeleteAlert = (id: string) => {
       setSelectedFileId(id);
@@ -74,10 +78,12 @@ const Printer: FC<PrinterProps> = ({ }) => {
   const handleDelete = async (id: string | null) => {
       if (id != undefined) {
           try {
+              logFirestore('delete-start', { documentId: id });
               await deleteDoc(doc(db, 'documents', id));
+              logFirestore('delete-success', { documentId: id });
               setDataError(null);
           } catch (error) {
-              console.error("Error eliminando el documento: ", error);
+              logFirestoreError('delete-failed', error);
               setDataError('delete');
           }
       }
