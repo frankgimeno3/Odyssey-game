@@ -23,6 +23,7 @@ export default function ResultCard({ name, god, lang, variant = "result" }: Resu
       </h2>
       <div className="absolute left-[26.5%] top-[29%] z-10 w-[34%] text-left text-[#303030]">
         <h1 className="result-name truncate font-cinzel uppercase">{name}</h1>
+        <p lang="el" className="result-guide mt-[2%] font-cinzel uppercase">ΑΝΕΡΡΙΦΘΩ ΚΥΒΟΣ!</p>
         <p className="result-guide mt-[1%] font-cinzel uppercase">{Content.cuestionario.resultado.tudioses[lang]}</p>
       </div>
       <div className="result-god-copy absolute z-10 text-left">

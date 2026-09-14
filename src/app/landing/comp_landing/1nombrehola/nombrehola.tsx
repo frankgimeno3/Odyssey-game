@@ -22,7 +22,7 @@ const Nombrehola: React.FC<NombreholaProps> = ({
         </div>
         <p className="text-black text-3xl pb-5 ">{Content.cuestionario.nombrehola.bienvenidosalolimpo[lang]}</p>
         <div className="flex flex-col justify-center items-center text-center  ">
-          <Image src="/Stickers.png" alt="Gods" width={650} height={550} />
+          <Image src="/Stickers.png" alt="Gods" width={750} height={635} className="h-auto max-w-full" />
         </div>
       </div>
       <div>
