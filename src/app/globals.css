@@ -313,10 +313,9 @@ button[style*="/boton.png"] {
 }
 
 .print-heading h1 {
-  overflow: hidden;
+  height: 7.4cqw;
   font-size: 7.4cqw;
   line-height: 1;
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 

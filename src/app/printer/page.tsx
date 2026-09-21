@@ -8,7 +8,8 @@ import Whitenav from './Navbar/Whitenav';
 import Navbar from './Navbar/navbar';
 import PrinterFilters from './PrinterFilters';
 import { emptyFilters, matchesFilters } from './filters';
-import { useReactToPrint } from 'react-to-print';  
+import { useReactToPrint } from 'react-to-print';
+import { printWithFittedName } from './printWithFittedName';
 // import slogans from "../contenido/slogans.json"
 // import sloganseng from "../contenido/sloganseng.json"
 // import slogansde from "../contenido/slogansde.json"
@@ -119,6 +120,7 @@ const Printer: FC<PrinterProps> = ({ }) => {
 
   const handlePrint = useReactToPrint({
       content: () => componentRef.current,
+      print: printWithFittedName,
       pageStyle: "@page { size: A4 landscape; margin: 0; } body { margin: 0; }",
   });
 
